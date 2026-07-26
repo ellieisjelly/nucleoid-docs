@@ -25,7 +25,7 @@ You now need to add a game configuration that will use your map.
 Game configurations are stored in the `games` folder of the datapack, so create your `.json` file there.
 
 Here are the configuration fields added by Build Rush, on top of the ones added by Plasmid:
-```json5
+```json5 linenums="1"
 {
   // ...
   "players": {
@@ -73,7 +73,7 @@ If you are contributing to the Build Rush repository, please make sure to follow
 - Your game configuration is in the correct subfolder: `small` is for maps compatible with 5x5 builds, `medium` is for 7x7, and `large` is for 9x9.
 - Your game configuration is listed in the `random` game configuration in the same subfolder.
 - The game configuration follows this example:
-  ```json5
+  ```json5 linenums="1"
   {
     // ...
     "name": {

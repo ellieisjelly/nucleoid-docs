@@ -3,9 +3,10 @@
 ### Adding to Gradle
 Assuming you [already have a Fabric workspace set up](https://fabricmc.net/wiki/tutorial:setup), the first step to setting up Plasmid will be adding it to your gradle buildscript. You will need to add the maven repository as well as the plasmid dependency. The Plasmid version should be replaced with the latest version from [our versions page](https://nucleoid.xyz/use).
 
-!!! info This tutorial is currently updated for **Plasmid 0.7.x** and **Minecraft 26.2**.
+!!! info
+   This tutorial is currently updated for **Plasmid 0.7.x** and **Minecraft 26.2**.
 
-```groovy
+```groovy linenums="1"
 repositories {
   maven { url = 'https://maven.nucleoid.xyz/releases/' }
 }
@@ -22,7 +23,7 @@ A "game type" (`GameType`) is the entry-point to creating a game with Plasmid: t
 Plasmid is designed to encourage data-driven games, and works with the concept of a "game config". A game config is essentially a specific variation of a game type! This may involve a different map to play on, or entirely different game mechanics. A game config is simply defined as a JSON file in a datapack that references your `GameType` and passes along any extra data that may be useful for configuring your game. While this may be a bit more work at first, it is very powerful in allowing games to be much easier to tweak or produce multiple variations of without duplicating code. More on configs later!
 
 To register a `GameType`, you will need to call `GameTypes.register()` in your `ModInitializer` class. A call to register a `GameType` may look something like:
-```java
+```java linenums="1"
 GameTypes.register(
         Identifier.fromNamespaceAndPath("plasmid_example", "example"),
         ExampleGameConfig.CODEC,
@@ -46,7 +47,7 @@ This naturally will not compile yet: neither `ExampleGame` nor `ExampleGameConfi
 ### Creating our config in code
 First we will create our `ExampleGameConfig` class, which will hold a `String` field that will be used as a message to send to the player when they join. Java's new [Records](https://docs.oracle.com/en/java/javase/16/language/records.html) are perfect for configs, but not required!
 
-```java
+```java linenums="1"
 public record ExampleGameConfig(String greeting) {
 }
 ```
@@ -56,7 +57,7 @@ That's simple enough! But we're missing the `CODEC` field that we referenced ear
 A codec is a very helpful tool implemented by Mojang's [DataFixerUpper](https://github.com/Mojang/DataFixerUpper) library that essentially allows for convenient serialization and deserialization of a Java object to a JSON file. A more detailed explanation of Codecs by Drullkus can be found [here](https://gist.github.com/Drullkus/1bca3f2d7f048b1fe03be97c28f87910), but for simple purposes, all you need to know is the pattern for putting them together.
 
 Essentially, a Codec describes *how an object is serialized and deserialized*. Simply, they can be created from a list of fields and how those fields should be serialized. It goes like this:
-```java
+```java linenums="1"
 public record ExampleGameConfig(String greeting) {
     public static final MapCodec<ExampleGameConfig> CODEC = RecordCodecBuilder.mapCodec(instance -> {
         return instance.group(
@@ -67,7 +68,7 @@ public record ExampleGameConfig(String greeting) {
 ```
 
 This will correspond to a JSON file that looks something like:
-```json
+```json linenums="1"
 {
   "greeting": "Hello World!"
 }
@@ -105,7 +106,7 @@ All game configs need to be located in your mod resources (or [datapack](https:/
 Plasmid requires only 1 JSON field from the config, while the rest is loaded as per the config codec that you set up. There are however also some additional optional fields which may be useful to define. The only required field is the `type`, which refers to the `GameType` you created earlier in `namespace:path` format (e.g. in our case, `plasmid_example:example`).
 
 For our purposes, our game config at `data/plasmid_example/plasmid/game/hello_world_example.json` will look like:
-```json
+```json linenums="1"
 {
   "type": "plasmid_example:example",
   "greeting": "Hello, World!"
@@ -114,7 +115,7 @@ For our purposes, our game config at `data/plasmid_example/plasmid/game/hello_wo
 
 We can also add some additional builtin fields to our JSON such as a `name`, `short_name`, `description`, and `icon`.
 This may look like:
-```json5
+```json5 linenums="1"
 {
   "type": "plasmid_example:example",
   "greeting": "Hello, World!",
@@ -137,7 +138,7 @@ All this actually means for you is that your language files need to go in the `d
 There are some default language keys we should worry about if we're not manually defining a name: `gameType.<namespace>.<id>` and `game.<namespace>.<id>`. These keys are applied for game _types_ and game _configs_ respectively. When resolving the readable name for a game config, both the config translation and type translation will be tested, with the type as a fallback. This means only the game type translation is strictly necessary.
 
 For example, we may define our `data/plasmid_example/lang/en_us.json` as:
-```json
+```json linenums="1"
 {
   "gameType.plasmid_example.example": "Plasmid Example!",
   "game.plasmid_example.hello_world_example": "Hello World Example!"
@@ -150,7 +151,7 @@ Now that we have set up a config and have told Plasmid how to read from it, we c
 For the purpose of this example, let's create an `ExampleGame` class. We will use this class to hold the state of the game as well as our `ExampleGameConfig` that got loaded. For now though, we just need to create this `open` function that we referenced to the `GameType`.
 
 This should look like:
-```java
+```java linenums="1"
 public class ExampleGame {
     public static GameOpenProcedure open(GameOpenContext<ExampleGameConfig> context) {
         // get our config that got loaded by Plasmid
@@ -185,7 +186,7 @@ Finally, we need to address what to do in the lambda with the `GameActivity` par
 Event tip: we make use of [Stimuli](https://github.com/NucleoidMC/stimuli) for handling many events in games, so any event from there can be used within Plasmid.
 
 For example:
-```java
+```java linenums="16"
 return context.openWithLevel(levelConfig, (activity, level) -> {
     activity.deny(GameRuleType.FALL_DAMAGE);
 
@@ -210,7 +211,7 @@ Specifically, you can think of the process as the following:
 This model has one primary benefit: allowing offers to be handled separately from the teleport logic means that games can reject players even if they are not actually on the server. Note that both of these listeners must be handled, or else players will be unable to join the game!
 
 An example offer and accept listener may look like:
-```java
+```java linenums="18"
 activity.listen(GamePlayerEvents.OFFER, JoinOffer::accept);
 
 activity.listen(GamePlayerEvents.ACCEPT, acceptor -> {
@@ -233,7 +234,7 @@ That's a lot! Let's break it down:
  - We then call `.thenRunForEach(...)` on the result of `.teleport(...)` in order to gain access to `ServerPlayer` instances and attach some additional spawn logic to be run when the player(s) join. In this case, that is to set the player's game mode to adventure mode as they join.
 
 Now that we have that set up, we can return to our player add listener: as of right now, we're not doing anything when it is called. We want it to send a greeting to the player when they join. Let's implement that:
-```java
+```java linenums="25"
 GameSpace gameSpace = activity.getGameSpace();
 activity.listen(GamePlayerEvents.ADD, player -> {
     Component message = Component.literal(config.greeting());
@@ -248,7 +249,7 @@ Working with players additionally goes through a different Plasmid API: a `Playe
 Tada! 🎉 We have a working game! But before we test it, let's do some minor reorganization. With all these handlers and lambdas, our code inside `createOpenProcedure` is going to get quite lengthy very quickly! It would be nice if we can put all event listeners on our `ExampleGame` object instead.
 
 Turns out, that works just fine, and we are left with our final `ExampleGame` setup:
-```java
+```java linenums="1"
 public class ExampleGame {
    private final ExampleGameConfig config;
    private final GameSpace gameSpace;

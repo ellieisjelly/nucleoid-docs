@@ -37,7 +37,7 @@ You now need to add a build configuration that will add information about your b
 Builds are stored in the `build_rush/builds` folder of the datapack, so create a `.json` file there.
 
 Here are the configuration fields of a build:
-```json5
+```json5 linenums="1"
 {
   "structure": "build_rush:build/my_build",
   "name": {

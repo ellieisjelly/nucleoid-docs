@@ -10,7 +10,7 @@ To get started, we'll create a new map with a stone platform and add a region na
 We can then export this map, and add it to data/(namespace)/map_template  
 ![File tree showing the folder structure of data/plasmid_example/map_template with a map file](../assets/images/example-game/data_folder_structure.png)  
 This folder will store all maps that the game will use, and we'll reference it in our code to load any map given their file name. To do this, we'll have to create some new classes in our example game, though. For now, let's create a new ExampleMap class with a field that stores the map template and the spawn region in our code: 
-```java
+```java linenums="1"
 public class ExampleMap {
     public final MapTemplate template;
     public final TemplateRegion spawn;
@@ -23,7 +23,7 @@ public class ExampleMap {
 }
 ```
 This will initially error, as we never load the map file and thus we don't know where the spawn region is and what value it stores, to fix this, we will have to load the map based on the identifier that we give it (In this example, the namespace would be plasmid_example and the path would be the file name, map). To do this, we will make use of the MapTemplateSerializer.loadFromResource() method, that takes in a Server instance and an Identifier representing our map: 
-```java
+```java linenums="6"
 // Needs to be wrapped in try catch due to possible exception
 try {
     this.template = MapTemplateSerializer.loadFromResource(server, Identifier.fromNamespaceAndPath("plasmid_example", "map"));
@@ -32,12 +32,12 @@ try {
 }
 ```
 With the map template in hand, we can finally access all of our regions by accessing the template metadata:
-```java
+```java linenums="12"
 this.spawn = template.getMetadata().getFirstRegion("spawn");
 ```
 ### Generating our map
 This is all fine and dandy, but we have still yet to generate the map inside our game! This is done using Chunk Generators. If you remember back to our game's open method, we create a TemplateChunkGenerator to generate our level: 
-```java
+```java linenums="37"
 // create a chunk generator that will generate from this template that we just created
 TemplateChunkGenerator generator = new TemplateChunkGenerator(context.server(), template);
 // set up how the level that this minigame will take place in should be constructed
@@ -45,14 +45,14 @@ RuntimeLevelConfig levelConfig = new RuntimeLevelConfig()
         .setGenerator(generator);
 ```
 ...nothing's stopping us from using the MapTemplate we acquired from our map to create this chunk generator instead!
-```java
+```java linenums="37"
 ExampleMap map = new ExampleMap(context.server());
 
 // create a chunk generator that will generate from this template that we just created
 TemplateChunkGenerator generator = new TemplateChunkGenerator(context.server(), map.template);
 ```
 Lastly, we'll make use of the spawn template region to set where the player should spawn in the Player Accept event. To do this, we'll also need to store the ExampleMap in our game class.
-```java
+```java linenums="53"
 // don't forget to change the constructor to assign this field as well!
 private final ExampleMap map;
 private JoinAcceptorResult onAcceptPlayers(JoinAcceptor acceptor) {
@@ -67,12 +67,14 @@ And... That's it! 🎉 If we go and join our game now, we get spawned in the rig
 ### Operation: Rescue Jeremy
 !!! note
     No pigs were harmed in the making of this tutorial  
-You might be wondering where Jeremy the pig is. The answer is that he wasn't saved when exporting our map. Thats no good though! How could we fix this? Entities aren't exported by default with Nucleoid Creator Tools, this is both a blessing and a curse, as it can both avoid accidental entities from being exported in your map, but also catch new builders off guard when building their maps. To fix this, we'll need to add a filter for all pigs, Jeremy included, using the following command: `/map entity filter type add minecraft:pig`. If you'd rather add only Jeremy, instead of all pigs, you could instead use `/map entity add (Jeremy UUID)`. When exporting the map, make sure to export with entities, like in this example: `/map export nucleoid_example:map withEntities`, or else entities won't be included with the map.   
+You might be wondering where Jeremy the pig is. The answer is that he wasn't saved when exporting our map.  
+Thats no good though! How could we fix this? Entities aren't exported by default with Nucleoid Creator Tools, this is both a blessing and a curse, as it can both avoid accidental entities from being exported in your map, but also catch new builders off guard when building their maps.  
+To fix this, we'll need to add a filter for all pigs, Jeremy included, using the following command: `/map entity filter type add minecraft:pig`. If you'd rather add only Jeremy, instead of all pigs, you could instead use `/map entity add (Jeremy UUID)`. When exporting the map, make sure to export with entities, like in this example: `/map export nucleoid_example:map withEntities`, or else entities won't be included with the map.   
 Now, if we update our game with the new map file, we should be all good now :D  
 ![Jeremy survives!](../assets/images/example-game/yes_jeremy.png)  
-If you've been following the tutorial so far, you should have ended up with your code looking like this:
+If you've been following the tutorial so far, you should have ended up with your code looking like this:  
 **ExampleGame.java**
-```java
+```java linenums="1"
 public class ExampleGame {
     private final ExampleGameConfig config;
     private final GameSpace gameSpace;
@@ -124,7 +126,7 @@ public class ExampleGame {
 ```
 
 **ExampleMap.java**
-```java
+```java linenums="1"
 public class ExampleMap {
     public final MapTemplate template;
     public final TemplateRegion spawn;
