@@ -1457,7 +1457,25 @@
 <p>You now need to add a game configuration that will use your map.
 Game configurations are stored in the <code>games</code> folder of the datapack, so create your <code>.json</code> file there.</p>
 <p>Here are the configuration fields added by Build Rush, on top of the ones added by Plasmid:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="c1">// ...</span>
 <span class="w">  </span><span class="nv">&quot;players&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nv">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
@@ -1476,7 +1494,7 @@ Game configurations are stored in the <code>games</code> folder of the datapack,
 <span class="w">  </span><span class="nv">&quot;builds&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#build_rush:generic&quot;</span>
 <span class="w">  </span><span class="c1">// ...</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <p>The game type is <code>build_rush:standard</code>.</p>
 <table>
 <thead>
@@ -1555,7 +1573,19 @@ Game configurations are stored in the <code>games</code> folder of the datapack,
 - Your game configuration is in the correct subfolder: <code>small</code> is for maps compatible with 5x5 builds, <code>medium</code> is for 7x7, and <code>large</code> is for 9x9.
 - Your game configuration is listed in the <code>random</code> game configuration in the same subfolder.
 - The game configuration follows this example:
-  <div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="c1">// ...</span>
 <span class="w">  </span><span class="nv">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nv">&quot;translate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;game.build_rush.small.with_map&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// change &quot;small&quot; with &quot;medium&quot; or &quot;large&quot; depending on the size of your plots</span>
@@ -1568,7 +1598,7 @@ Game configurations are stored in the <code>games</code> folder of the datapack,
 <span class="w">  </span><span class="nv">&quot;icon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;minecraft:diamond&quot;</span><span class="p">,</span><span class="w">                       </span><span class="c1">// as your game will show up in the list of games, you need an item to represent it</span>
 <span class="w">  </span><span class="c1">// ...</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 - Your game configuration has an icon.
 - The build list is large enough, to counter the feeling of repetitiveness. If you don't have enough builds, leave the builds empty for the game to use the <code>#build_rush:generic</code> tag.</p>
 

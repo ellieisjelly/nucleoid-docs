@@ -1642,7 +1642,25 @@
 <h3 id="server-status">Server status</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>GET https://api.nucleoid.xyz/status/play
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>GET https://api.nucleoid.xyz/status/play
 
 {
     &quot;game_version&quot;: &quot;1.16.4&quot;,
@@ -1661,7 +1679,7 @@
         }
     ]
 }
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 <p>This endpoint allows you to query the status of any of the Nucleoid servers.
 Currently the following servers are available to query:</p>
@@ -1699,7 +1717,19 @@ Currently the following servers are available to query:</p>
 <h3 id="get-recent-games">Get recent games</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>GET https://api.nucleoid.xyz/games/recent?limit=10
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>GET https://api.nucleoid.xyz/games/recent?limit=10
 
 [
     {
@@ -1712,7 +1742,7 @@ Currently the following servers are available to query:</p>
         &quot;date_played&quot;: &quot;2021-10-30T16:24:47Z&quot;
     }
 ]
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 <p>Queries a list of recently played games on the server. The limit argument is required and specifies the maximum number of games returned.</p>
 <h4 id="recent-game-object">Recent game object</h4>
@@ -1749,7 +1779,19 @@ Currently the following servers are available to query:</p>
 <h3 id="get-recent-games-player">Get recent games (player)</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>GET https://api.nucleoid.xyz/games/recent?limit=10&amp;player=f0087cb4-dee2-4b99-8158-d20cd72b343d
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code>GET https://api.nucleoid.xyz/games/recent?limit=10&amp;player=f0087cb4-dee2-4b99-8158-d20cd72b343d
 
 [
     {
@@ -1762,7 +1804,7 @@ Currently the following servers are available to query:</p>
         &quot;date_played&quot;: &quot;2021-10-30T16:24:47Z&quot;
     }
 ]
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 <p>Queries a list of recently played games by a particular player on the server.</p>
 <p>The limit argument is required and specifies the maximum number of games returned.</p>
@@ -1770,7 +1812,17 @@ Currently the following servers are available to query:</p>
 <h3 id="get-all-player-stats">Get all player stats</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>GET https://api.nucleoid.xyz/stats/player/07e92b46-8386-4067-8f72-8ab96e606fb7
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>GET https://api.nucleoid.xyz/stats/player/07e92b46-8386-4067-8f72-8ab96e606fb7
 
 {
     &quot;bedwars&quot;: {
@@ -1781,7 +1833,7 @@ Currently the following servers are available to query:</p>
         &quot;beds_destroyed&quot;: 21.0
     }
 }
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 <p>Allows for querying all the statistics of a player.</p>
 <div class="admonition note">
@@ -1796,7 +1848,17 @@ Rust's <code>HashMap</code>s are similar to dictionaries in other languages or o
 <h3 id="get-player-stats-for-a-game">Get player stats for a game</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>GET https://api.nucleoid.xyz/stats/player/07e92b46-8386-4067-8f72-8ab96e606fb7/bedwars
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>GET https://api.nucleoid.xyz/stats/player/07e92b46-8386-4067-8f72-8ab96e606fb7/bedwars
 
 {
     &quot;bedwars&quot;: {
@@ -1807,14 +1869,31 @@ Rust's <code>HashMap</code>s are similar to dictionaries in other languages or o
         &quot;beds_destroyed&quot;: 21.0
     }
 }
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 <p>Allows for filtering the returned statistics by a particular game/namespace.
 It will return a response in the same format as <a href="#get-all-player-stats">Get all player stats</a>, just without stats for minigames other than the specified one.</p>
 <h3 id="get-stats-for-game">Get stats for game</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>GET https://api.nucleoid.xyz/stats/game/bda420f0-b480-4f8b-bcc5-7c6c63d51643
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code>GET https://api.nucleoid.xyz/stats/game/bda420f0-b480-4f8b-bcc5-7c6c63d51643
 
 {
     &quot;07e92b46-8386-4067-8f72-8ab96e606fb7&quot;: {
@@ -1832,7 +1911,7 @@ It will return a response in the same format as <a href="#get-all-player-stats">
         }
     }
 }
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 <p>Allows for querying the statistics after a particular game has been played.</p>
 <div class="admonition note">
@@ -1849,7 +1928,22 @@ The <code>uuid::Uuid</code> type can be substituted for <code>String</code> if y
 <h3 id="get-statistics-stats">Get statistics stats</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>GET https://api.nucleoid.xyz/stats/stats
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>GET https://api.nucleoid.xyz/stats/stats
 
 {
     &quot;unique_players&quot;: 141,
@@ -1865,14 +1959,33 @@ The <code>uuid::Uuid</code> type can be substituted for <code>String</code> if y
         &quot;total&quot;: 662742.2732343078
     }
 }
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 <p>Returns some information about the amount of statistics that have been recorded in total.</p>
 <h2 id="leaderboards">Leaderboards</h2>
 <h3 id="get-leaderboard">Get leaderboard</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>GET https://api.nucleoid.xyz/leaderboard/nucleoid:games_played
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code>GET https://api.nucleoid.xyz/leaderboard/nucleoid:games_played
 
 [
     {
@@ -1892,7 +2005,7 @@ The <code>uuid::Uuid</code> type can be substituted for <code>String</code> if y
     },
     ...
 ]
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 <p>Returns the top 10 of the specified leaderboard.</p>
 <h4 id="leaderboard-entry-object">Leaderboard entry object</h4>
@@ -1925,7 +2038,16 @@ The <code>uuid::Uuid</code> type can be substituted for <code>String</code> if y
 <h3 id="get-player-rankings">Get player rankings</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>GET https://api.nucleoid.xyz/player/5ad3ab57b55646359ba99a9a0568965a/rankings
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>GET https://api.nucleoid.xyz/player/5ad3ab57b55646359ba99a9a0568965a/rankings
 
 {
     &quot;nucleoid:games_played&quot;: [34, 15],
@@ -1935,7 +2057,7 @@ The <code>uuid::Uuid</code> type can be substituted for <code>String</code> if y
     &quot;electricfloor:longest_time&quot;: [27, 70.85],
     &quot;electricfloor:blocks_converted&quot;: [15, 536]
 }
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 </div>
 <p>Allows for querying a player's locations in the leaderboards.
 Each item in the returned item corresponds to one leaderboard, and the value is a pair, <code>[ranking, value]</code>, which have the same meaning as in the <a href="#leaderboard-entry-object">Leaderboard entry object</a></p>

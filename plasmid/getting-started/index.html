@@ -1496,7 +1496,14 @@
 <p class="admonition-title">Info</p>
 </div>
 <p>This tutorial is currently updated for <strong>Plasmid 0.7.x</strong> and <strong>Minecraft 26.2</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">repositories</span><span class="w"> </span><span class="o">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">repositories</span><span class="w"> </span><span class="o">{</span>
 <span class="w">  </span><span class="n">maven</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://maven.nucleoid.xyz/releases/&#39;</span><span class="w"> </span><span class="o">}</span>
 <span class="o">}</span>
 
@@ -1504,17 +1511,21 @@
 <span class="w">  </span><span class="c1">// ...</span>
 <span class="w">  </span><span class="n">implementation</span><span class="w"> </span><span class="s1">&#39;xyz.nucleoid:plasmid:0.7.2+26.2&#39;</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <h3 id="creating-a-game-type">Creating a game type</h3>
 <p>A "game type" (<code>GameType</code>) is the entry-point to creating a game with Plasmid: they provide a unique identifier for your game, as well as all the information needed for it to be able to call your code when the game starts.</p>
 <p>Plasmid is designed to encourage data-driven games, and works with the concept of a "game config". A game config is essentially a specific variation of a game type! This may involve a different map to play on, or entirely different game mechanics. A game config is simply defined as a JSON file in a datapack that references your <code>GameType</code> and passes along any extra data that may be useful for configuring your game. While this may be a bit more work at first, it is very powerful in allowing games to be much easier to tweak or produce multiple variations of without duplicating code. More on configs later!</p>
 <p>To register a <code>GameType</code>, you will need to call <code>GameTypes.register()</code> in your <code>ModInitializer</code> class. A call to register a <code>GameType</code> may look something like:
-<div class="highlight"><pre><span></span><code><span class="n">GameTypes</span><span class="p">.</span><span class="na">register</span><span class="p">(</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">GameTypes</span><span class="p">.</span><span class="na">register</span><span class="p">(</span>
 <span class="w">        </span><span class="n">Identifier</span><span class="p">.</span><span class="na">fromNamespaceAndPath</span><span class="p">(</span><span class="s">&quot;plasmid_example&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;example&quot;</span><span class="p">),</span>
 <span class="w">        </span><span class="n">ExampleGameConfig</span><span class="p">.</span><span class="na">CODEC</span><span class="p">,</span>
 <span class="w">        </span><span class="n">ExampleGame</span><span class="p">::</span><span class="kd">open</span>
 <span class="p">);</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <p>Let's break down what is going on here:</p>
 <ul>
 <li>
@@ -1539,25 +1550,34 @@
 <p>This naturally will not compile yet: neither <code>ExampleGame</code> nor <code>ExampleGameConfig</code> exist! Let's get to that.</p>
 <h3 id="creating-our-config-in-code">Creating our config in code</h3>
 <p>First we will create our <code>ExampleGameConfig</code> class, which will hold a <code>String</code> field that will be used as a message to send to the player when they join. Java's new <a href="https://docs.oracle.com/en/java/javase/16/language/records.html">Records</a> are perfect for configs, but not required!</p>
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">ExampleGameConfig</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">ExampleGameConfig</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>That's simple enough! But we're missing the <code>CODEC</code> field that we referenced earlier. What is that about?</p>
 <p>A codec is a very helpful tool implemented by Mojang's <a href="https://github.com/Mojang/DataFixerUpper">DataFixerUpper</a> library that essentially allows for convenient serialization and deserialization of a Java object to a JSON file. A more detailed explanation of Codecs by Drullkus can be found <a href="https://gist.github.com/Drullkus/1bca3f2d7f048b1fe03be97c28f87910">here</a>, but for simple purposes, all you need to know is the pattern for putting them together.</p>
 <p>Essentially, a Codec describes <em>how an object is serialized and deserialized</em>. Simply, they can be created from a list of fields and how those fields should be serialized. It goes like this:
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">ExampleGameConfig</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">ExampleGameConfig</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">greeting</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MapCodec</span><span class="o">&lt;</span><span class="n">ExampleGameConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CODEC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RecordCodecBuilder</span><span class="p">.</span><span class="na">mapCodec</span><span class="p">(</span><span class="n">instance</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">instance</span><span class="p">.</span><span class="na">group</span><span class="p">(</span>
 <span class="w">                </span><span class="n">Codec</span><span class="p">.</span><span class="na">STRING</span><span class="p">.</span><span class="na">fieldOf</span><span class="p">(</span><span class="s">&quot;greeting&quot;</span><span class="p">).</span><span class="na">forGetter</span><span class="p">(</span><span class="n">ExampleGameConfig</span><span class="p">::</span><span class="n">greeting</span><span class="p">)</span>
 <span class="w">        </span><span class="p">).</span><span class="na">apply</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span><span class="w"> </span><span class="n">ExampleGameConfig</span><span class="p">::</span><span class="k">new</span><span class="p">);</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <p>This will correspond to a JSON file that looks something like:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;greeting&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello World!&quot;</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <p>Most things here you can ignore: you only really need to worry about what's in the <code>instance.group(...)</code> call, and the generic on the Codec. To look at each relevant part more specifically:</p>
 <ul>
 <li>
@@ -1607,14 +1627,26 @@
 <p>All game configs need to be located in your mod resources (or <a href="https://github.com/NucleoidMC/game-configs">datapack</a>!) at <code>data/&lt;namespace&gt;/plasmid/game/&lt;id&gt;.json</code>. For the purpose of a mod, the <code>namespace</code> should just be your mod id, and the <code>id</code> can be any unique name that will later be used to reference your game config from inside Minecraft.</p>
 <p>Plasmid requires only 1 JSON field from the config, while the rest is loaded as per the config codec that you set up. There are however also some additional optional fields which may be useful to define. The only required field is the <code>type</code>, which refers to the <code>GameType</code> you created earlier in <code>namespace:path</code> format (e.g. in our case, <code>plasmid_example:example</code>).</p>
 <p>For our purposes, our game config at <code>data/plasmid_example/plasmid/game/hello_world_example.json</code> will look like:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;plasmid_example:example&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;greeting&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <p>We can also add some additional builtin fields to our JSON such as a <code>name</code>, <code>short_name</code>, <code>description</code>, and <code>icon</code>.
 This may look like:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nv">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;plasmid_example:example&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nv">&quot;greeting&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">,</span>
 
@@ -1624,23 +1656,46 @@ This may look like:
 
 <span class="w">  </span><span class="c1">// ...</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <p><code>name</code> and <code>description</code> can also reference translation keys due to being <a href="https://minecraft.wiki/w/Raw_JSON_text_format">JSON Text Components</a>. For example, this may instead be: <code>"name": {"translate": "game.plasmid_example.hello_world_example"}</code>.</p>
 <h4 id="a-note-on-translations">A note on translations</h4>
 <p>Translations are a bit non-standard in Plasmid due to it being entirely server-side! Usually translations are stored with the game client, and the server simply sends over <em>translation keys</em> which are then turned into relevant readable text on the client-side. Here, however, we need to instead handle translations by changing the packets that get sent to players such that they are correctly translated <em>before</em> the client even receives it. This is a lot of work! Luckily, this is handled by <a href="https://github.com/NucleoidMC/Server-Translations">Server Translations</a>, and we do not need to worry about it!</p>
 <p>All this actually means for you is that your language files need to go in the <code>data</code> folder instead of the <code>assets</code> folder (e.g. <code>data/&lt;namespace&gt;/lang/en_us.json</code>).</p>
 <p>There are some default language keys we should worry about if we're not manually defining a name: <code>gameType.&lt;namespace&gt;.&lt;id&gt;</code> and <code>game.&lt;namespace&gt;.&lt;id&gt;</code>. These keys are applied for game <em>types</em> and game <em>configs</em> respectively. When resolving the readable name for a game config, both the config translation and type translation will be tested, with the type as a fallback. This means only the game type translation is strictly necessary.</p>
 <p>For example, we may define our <code>data/plasmid_example/lang/en_us.json</code> as:
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;gameType.plasmid_example.example&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Plasmid Example!&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;game.plasmid_example.hello_world_example&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello World Example!&quot;</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <h3 id="writing-the-code-to-start-our-game">Writing the code to start our game</h3>
 <p>Now that we have set up a config and have told Plasmid how to read from it, we can finally write the code to actually start our game.</p>
 <p>For the purpose of this example, let's create an <code>ExampleGame</code> class. We will use this class to hold the state of the game as well as our <code>ExampleGameConfig</code> that got loaded. For now though, we just need to create this <code>open</code> function that we referenced to the <code>GameType</code>.</p>
 <p>This should look like:
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleGame</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleGame</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">GameOpenProcedure</span><span class="w"> </span><span class="nf">open</span><span class="p">(</span><span class="n">GameOpenContext</span><span class="o">&lt;</span><span class="n">ExampleGameConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// get our config that got loaded by Plasmid</span>
 <span class="w">        </span><span class="n">ExampleGameConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">config</span><span class="p">();</span>
@@ -1661,21 +1716,27 @@ This may look like:
 <span class="w">        </span><span class="p">});</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <p>There is a lot to unpack here, but it's not too complex if we break it down. Our <code>open</code> will be called whenever a player starts this game. The function takes a <code>GameOpenContext</code>, which holds the data from our JSON config (<code>context.config()</code>), and must return a <code>GameOpenProcedure</code>, which instructs Plasmid how it should continue to set up the game. It is worth nothing that this function is run asynchronously on the thread pool, so it is safe to run whatever slow code here before the game starts.</p>
 <p>The <code>GameOpenProcedure</code> is created from the <code>GameOpenContext.openWithLevel</code> function, and takes in a <code>RuntimeLevelConfig</code> as well as a lambda that accepts a <code>GameActivity</code> and <code>ServerLevel</code>. A runtime level is a concept within Plasmid that represents the fully isolated and temporary level that the game takes place within. It is automatically deleted when the game finishes. When a player joins the game, their inventory will be cleared, and when they leave, it will be restored back to them. A game activity is a specific set of logic that is running within a game: this is what we will configure to change game behaviour. We can switch the activity within a game at any point.</p>
 <p>The <code>RuntimeLevelConfig</code> describes how this level should be created. The most important thing to be configured within here is the chunk generator: this tells the game how the level should generate. It would be possible to, for example, pass the overworld chunk generator here, but for our purpose, we're creating an empty level with a single stone block. This is handled through the convenience <code>TemplateChunkGenerator</code>: this takes a <code>MapTemplate</code>, which is just a very basic level that contains some blocks! The generator then loads from that into the level itself.</p>
 <p>Finally, we need to address what to do in the lambda with the <code>GameActivity</code> parameter. The code inside this lambda will run on the <em>main server thread</em>, and is used to run the actual game setup code. This mainly involves registering event listeners, or setting global rules.</p>
 <p>Event tip: we make use of <a href="https://github.com/NucleoidMC/stimuli">Stimuli</a> for handling many events in games, so any event from there can be used within Plasmid.</p>
 <p>For example:
-<div class="highlight"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">openWithLevel</span><span class="p">(</span><span class="n">levelConfig</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">,</span><span class="w"> </span><span class="n">level</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">openWithLevel</span><span class="p">(</span><span class="n">levelConfig</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">activity</span><span class="p">,</span><span class="w"> </span><span class="n">level</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">activity</span><span class="p">.</span><span class="na">deny</span><span class="p">(</span><span class="n">GameRuleType</span><span class="p">.</span><span class="na">FALL_DAMAGE</span><span class="p">);</span>
 
 <span class="w">    </span><span class="n">activity</span><span class="p">.</span><span class="na">listen</span><span class="p">(</span><span class="n">GamePlayerEvents</span><span class="p">.</span><span class="na">ADD</span><span class="p">,</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// a player has been added!</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">});</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <p>This code will disable fall damage for all players, as well as registering an event listener that will be called whenever a player is added to this game.</p>
 <p>However! Before we give functionality to our brilliant example game, we need to respond to the <em>player offer and accept event listeners</em>. These listeners are called <em>before</em> any player joins the game and are responsible for accepting or rejecting join requests as well as defining how and where the player should be spawned into our game level.</p>
 <p>Specifically, you can think of the process as the following:</p>
@@ -1688,7 +1749,14 @@ This may look like:
 </ul>
 <p>This model has one primary benefit: allowing offers to be handled separately from the teleport logic means that games can reject players even if they are not actually on the server. Note that both of these listeners must be handled, or else players will be unable to join the game!</p>
 <p>An example offer and accept listener may look like:
-<div class="highlight"><pre><span></span><code><span class="n">activity</span><span class="p">.</span><span class="na">listen</span><span class="p">(</span><span class="n">GamePlayerEvents</span><span class="p">.</span><span class="na">OFFER</span><span class="p">,</span><span class="w"> </span><span class="n">JoinOffer</span><span class="p">::</span><span class="n">accept</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">activity</span><span class="p">.</span><span class="na">listen</span><span class="p">(</span><span class="n">GamePlayerEvents</span><span class="p">.</span><span class="na">OFFER</span><span class="p">,</span><span class="w"> </span><span class="n">JoinOffer</span><span class="p">::</span><span class="n">accept</span><span class="p">);</span>
 
 <span class="n">activity</span><span class="p">.</span><span class="na">listen</span><span class="p">(</span><span class="n">GamePlayerEvents</span><span class="p">.</span><span class="na">ACCEPT</span><span class="p">,</span><span class="w"> </span><span class="n">acceptor</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">acceptor</span><span class="p">.</span><span class="na">teleport</span><span class="p">(</span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vec3</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">65.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">))</span>
@@ -1696,7 +1764,7 @@ This may look like:
 <span class="w">                </span><span class="n">player</span><span class="p">.</span><span class="na">setGameMode</span><span class="p">(</span><span class="n">GameType</span><span class="p">.</span><span class="na">ADVENTURE</span><span class="p">);</span>
 <span class="w">            </span><span class="p">});</span>
 <span class="p">});</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <p>That's a lot! Let's break it down:</p>
 <ul>
 <li>
@@ -1716,17 +1784,69 @@ This may look like:
 </li>
 </ul>
 <p>Now that we have that set up, we can return to our player add listener: as of right now, we're not doing anything when it is called. We want it to send a greeting to the player when they join. Let's implement that:
-<div class="highlight"><pre><span></span><code><span class="n">GameSpace</span><span class="w"> </span><span class="n">gameSpace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="na">getGameSpace</span><span class="p">();</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">GameSpace</span><span class="w"> </span><span class="n">gameSpace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">activity</span><span class="p">.</span><span class="na">getGameSpace</span><span class="p">();</span>
 <span class="n">activity</span><span class="p">.</span><span class="na">listen</span><span class="p">(</span><span class="n">GamePlayerEvents</span><span class="p">.</span><span class="na">ADD</span><span class="p">,</span><span class="w"> </span><span class="n">player</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Component</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Component</span><span class="p">.</span><span class="na">literal</span><span class="p">(</span><span class="n">config</span><span class="p">.</span><span class="na">greeting</span><span class="p">());</span>
 <span class="w">    </span><span class="n">gameSpace</span><span class="p">.</span><span class="na">getPlayers</span><span class="p">().</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <p>So we've added logic to send a message within the listener, but what is a <code>GameSpace</code>? A <code>GameSpace</code> is a concept introduced by Plasmid which, as the name implies, represents the <em>space</em> within which a game is occurring. For all our purposes, that space is just this one dimension that the game is playing within. The <code>GameSpace</code> is useful for us in that it keeps track of all the players within it, as well as the <code>ServerLevel</code> that the game is taking place within. Here, we access the <code>GameSpace</code> through <code>GameActivity.getGameSpace()</code>.</p>
 <p>Working with players additionally goes through a different Plasmid API: a <code>PlayerSet</code>. A <code>PlayerSet</code> represents just a list of players, and it can be iterated over or queried, but additionally provides utilities for performing bulk operations over many players. For example, sending a message! Here, we use <code>PlayerSet.sendMessage()</code> to send our greeting to every player within the game.</p>
 <p>Tada! 🎉 We have a working game! But before we test it, let's do some minor reorganization. With all these handlers and lambdas, our code inside <code>createOpenProcedure</code> is going to get quite lengthy very quickly! It would be nice if we can put all event listeners on our <code>ExampleGame</code> object instead.</p>
 <p>Turns out, that works just fine, and we are left with our final <code>ExampleGame</code> setup:
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleGame</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleGame</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ExampleGameConfig</span><span class="w"> </span><span class="n">config</span><span class="p">;</span>
 <span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">GameSpace</span><span class="w"> </span><span class="n">gameSpace</span><span class="p">;</span>
 <span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ServerLevel</span><span class="w"> </span><span class="n">level</span><span class="p">;</span>
@@ -1775,7 +1895,7 @@ This may look like:
 <span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">gameSpace</span><span class="p">.</span><span class="na">getPlayers</span><span class="p">().</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <h3 id="testing-the-game">Testing the game!</h3>
 <p>Once everything compiles, we can finally launch up Minecraft. If our <code>GameType</code> is all correctly set up and game config JSON in place, once opening a world, we should be able to start our game by running: <code>/game open &lt;id&gt;</code>. (Remember, this is referencing the name of the JSON file and not the GameType!)</p>
 <p>So in our case: <code>/game open plasmid_example:hello_world_example</code>

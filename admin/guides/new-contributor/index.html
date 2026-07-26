@@ -1501,15 +1501,28 @@
 <h3 id="discord">Discord</h3>
 <p>Grant them the contributor role, along with whichever specific roles fit (eg. code contributor, build contributor, translations contributor, etc).</p>
 <h3 id="in-game">In game</h3>
-<div class="highlight"><pre><span></span><code><span class="o">/</span><span class="kc">role</span><span class="w"> </span><span class="kc">assign</span><span class="w"> </span><span class="o">&lt;</span><span class="kc">username</span><span class="o">&gt;</span><span class="w"> </span><span class="kc">contributor</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">/</span><span class="kc">role</span><span class="w"> </span><span class="kc">assign</span><span class="w"> </span><span class="o">&lt;</span><span class="kc">username</span><span class="o">&gt;</span><span class="w"> </span><span class="kc">contributor</span>
 <span class="o">/</span><span class="kc">role</span><span class="w"> </span><span class="kc">assign</span><span class="w"> </span><span class="o">&lt;</span><span class="kc">username</span><span class="o">&gt;</span><span class="w"> </span><span class="kc">dev</span><span class="w"> </span><span class="c1"># if they are a code contributor</span>
 <span class="o">/</span><span class="kc">role</span><span class="w"> </span><span class="kc">assign</span><span class="w"> </span><span class="o">&lt;</span><span class="kc">username</span><span class="o">&gt;</span><span class="w"> </span><span class="kc">builder</span><span class="w"> </span><span class="c1"># if they are a build contributor</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <h3 id="website-cards">Website cards</h3>
 <ol>
 <li>Create a new file in the <a href="https://github.com/NucleoidMC/nucleoid-contributors"><code>NucleoidMC/nucleoid-contributors</code></a>, under the folder <code>data/people/</code> named <code>theirusername.toml</code> (use all lower case, and no spaces or special characters).</li>
 <li>Fill out the file using the following template:
-<div class="highlight"><pre><span></span><code><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;their preferred display name (if unsure, ask)&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;their preferred display name (if unsure, ask)&quot;</span>
 <span class="n">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s2">&quot;code&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="s2">&quot;building&quot;</span><span class="p">,</span>
@@ -1521,7 +1534,7 @@
 
 <span class="k">[socials]</span>
 <span class="n">minecraft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;their minecraft uuid (for consistency, remove the -)&quot;</span>
-</code></pre></div></li>
+</code></pre></div></td></tr></table></div></li>
 <li>Commit the file back to the repo, and run <code>sudo git pull</code> in <code>/var/www/nucleoid-contributors</code> (unfortunately we don't have auto-deployment yet, poke Ash to set it up if you get annoyed by this).</li>
 <li>Invite them to update the file (or if they're not familiar with GitHub, provide extras for you to put in) - see <a href="https://github.com/NucleoidMC/nucleoid-contributors/blob/main/data/people/ashhhleyyy.toml">Ash's card</a> as a template. Members of the GitHub org should automatically get write permissions to the repo, so can update their own.</li>
 </ol>
