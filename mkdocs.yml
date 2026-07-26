@@ -31,7 +31,8 @@ nav:
   - Plasmid:
     - plasmid/index.md
     - plasmid/getting-started.md
-    - plasmid/maps.md
+    - plasmid/creating-maps.md
+    - plasmid/adding-map-support.md
     - plasmid/statistics.md
   - Backend:
     - backend/index.md

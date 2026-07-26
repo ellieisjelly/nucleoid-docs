@@ -3,8 +3,7 @@
 ### Adding to Gradle
 Assuming you [already have a Fabric workspace set up](https://fabricmc.net/wiki/tutorial:setup), the first step to setting up Plasmid will be adding it to your gradle buildscript. You will need to add the maven repository as well as the plasmid dependency. The Plasmid version should be replaced with the latest version from [our versions page](https://nucleoid.xyz/use).
 
-!!! info
-	This tutorial is currently updated for **Plasmid 0.7.x** and **Minecraft 26.2**.
+!!! info This tutorial is currently updated for **Plasmid 0.7.x** and **Minecraft 26.2**.
 
 ```groovy
 repositories {
@@ -307,6 +306,6 @@ Once everything compiles, we can finally launch up Minecraft. If our `GameType` 
 So in our case: `/game open plasmid_example:hello_world_example`
 ...and we should be joined into our void world with a stone block with a lovely greeting!
 
-Now, any other player can join us too by running `/game join` or clicking the link that shows up in chat.
+Now, any other player can join us too by running `/game join` or clicking the link that shows up in chat. To leave, use `/game leave`.
 
-That's it! 🎉 
+That's it! 🎉 If you'd like to see how to add custom maps to your minigame, check out [the Adding Map Support page](adding-map-support.md).

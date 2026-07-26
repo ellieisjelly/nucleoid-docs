@@ -2,7 +2,7 @@
 
 ## Creating the map template
 
-Please follow the [Plasmid tutorial](../plasmid/maps.md) on how to create a map template.
+Please follow the [Plasmid tutorial](../plasmid/creating-maps.md) on how to create a map template.
 
 A Build Rush map template needs the following regions:
 - `center_plot`: the center of the map, where the players will be teleported to at first, and where the chosen build may appear at points. (only 1)
