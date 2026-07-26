@@ -626,28 +626,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#examplegamejava" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ExampleGame.java
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examplemapjava" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ExampleMap.java
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1464,7 +1442,7 @@
 <h1 id="adding-map-support">Adding Map Support</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This page assumes you already have familiarity with <a href="https://modrinth.com/mod/nucleoid-creator-tools">Nucleoid Creator Tools</a> and the map making process. If not, check out <a href="../creating-maps/">the Creating Maps page</a> to find out how to make your own maps.</p>
+<p>This page assumes you already have familiarity with <a href="https://modrinth.com/mod/nucleoid-creator-tools">Nucleoid Creator Tools</a> and the map making process. If not, check out the <a href="../creating-maps/">Creating Maps</a> page to find out how to make your own maps.</p>
 </div>
 <p>Any minigame requires a map, some can be generated, but most games use maps built by hand. This page will explain the process of adding hand-made map support to your game.</p>
 <h3 id="creating-the-map">Creating the Map</h3>
@@ -1526,11 +1504,11 @@ And... That's it! 🎉 If we go and join our game now, we get spawned in the rig
 <p class="admonition-title">Note</p>
 <p>No pigs were harmed in the making of this tutorial  </p>
 </div>
-<p>You might be wondering where Jeremy the pig is. The answer is that he wasn't saved when exporting our map. Thats no good though! How could we fix this? Entities aren't exported by default with Nucleoid Creator Tools, this is both a blessing and a curse, as it can both avoid accidental entities from being exported in your map, but also catch new builders off guard when building their maps. To fix this, we'll need to add a filter for all pigs, Jeremy included, using the following command: <code>/map entity filter type add minecraft:pig</code>. If you'd rather add only Jeremy, instead of all pigs, you could instead use <code>/map entity add (Jeremy UUID)</code>. Now, when we go to export our map, make sure to export with entities, like in this example: <code>/map export nucleoid_example:map withEntities</code><br />
+<p>You might be wondering where Jeremy the pig is. The answer is that he wasn't saved when exporting our map. Thats no good though! How could we fix this? Entities aren't exported by default with Nucleoid Creator Tools, this is both a blessing and a curse, as it can both avoid accidental entities from being exported in your map, but also catch new builders off guard when building their maps. To fix this, we'll need to add a filter for all pigs, Jeremy included, using the following command: <code>/map entity filter type add minecraft:pig</code>. If you'd rather add only Jeremy, instead of all pigs, you could instead use <code>/map entity add (Jeremy UUID)</code>. When exporting the map, make sure to export with entities, like in this example: <code>/map export nucleoid_example:map withEntities</code>, or else entities won't be included with the map. <br />
 Now, if we update our game with the new map file, we should be all good now :D<br />
-<img alt="Jeremy survives!" src="../../assets/images/example-game/yes_jeremy.png" />
-If you've been following the tutorial so far, you should have ended up with your code looking like this:</p>
-<h3 id="examplegamejava">ExampleGame.java</h3>
+<img alt="Jeremy survives!" src="../../assets/images/example-game/yes_jeremy.png" /><br />
+If you've been following the tutorial so far, you should have ended up with your code looking like this:
+<strong>ExampleGame.java</strong>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleGame</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ExampleGameConfig</span><span class="w"> </span><span class="n">config</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">GameSpace</span><span class="w"> </span><span class="n">gameSpace</span><span class="p">;</span>
@@ -1579,9 +1557,9 @@ If you've been following the tutorial so far, you should have ended up with your
 <span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">gameSpace</span><span class="p">.</span><span class="na">getPlayers</span><span class="p">().</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<h3 id="examplemapjava">ExampleMap.java</h3>
-<p><div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleMap</span><span class="w"> </span><span class="p">{</span>
+</code></pre></div></p>
+<p><strong>ExampleMap.java</strong>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleMap</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MapTemplate</span><span class="w"> </span><span class="n">template</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">TemplateRegion</span><span class="w"> </span><span class="n">spawn</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ExampleMap</span><span class="p">(</span><span class="n">MinecraftServer</span><span class="w"> </span><span class="n">server</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
