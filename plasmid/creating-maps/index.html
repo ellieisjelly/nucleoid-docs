@@ -1548,7 +1548,10 @@ Once you are in the workspace dimension, you are free to build whatever you want
 <p>This is where regions come in: a region is just a named area of the map which can be used to communicate to the game code an area in which something should happen. There can be multiple regions in the map with the same name, or multiple regions with different names in the same location. The naming of regions is useful in order to identify to the game code what each region represents.</p>
 <h3 id="creating-a-region">Creating a region</h3>
 <p>To get started with creating a region, run: <code>/give @s nucleoid_creator_tools:add_region</code>. This gives you the <em>Add Region</em> item, which can be used to easily define regions within your world by selecting two corners.</p>
-<p>!!! note If you have <a href="https://modrinth.com/mod/polymer">Polymer</a> installed client-side, you can also get this item from the creative menu. <img alt="A screenshot showing the Polymer Creative Menu" src="../../assets/images/map-creation/polymer_creative_menu.png" /> </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have <a href="https://modrinth.com/mod/polymer">Polymer</a> installed client-side, you can also get this item from the creative menu. <img alt="A screenshot showing the Polymer Creative Menu" src="../../assets/images/map-creation/polymer_creative_menu.png" /> </p>
+</div>
 <p>By right clicking on a block, a particle box should appear. This starts the process of defining a region by selecting the first corner. Now, as you look around, the box will shape to match the second corner. Right clicking a second time will select the current looked-at block as the second corner.</p>
 <p>Now, you can run <code>/map region commit &lt;marker&gt;</code>. This will add the highlighted region to your map with the given <code>marker</code>, and it should highlight with differently colored particles.</p>
 <p>For example, this is what it would look like if you created a 1x1 region named spawn:
