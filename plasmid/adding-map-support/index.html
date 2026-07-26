@@ -1504,10 +1504,12 @@ And... That's it! 🎉 If we go and join our game now, we get spawned in the rig
 <p class="admonition-title">Note</p>
 <p>No pigs were harmed in the making of this tutorial  </p>
 </div>
-<p>You might be wondering where Jeremy the pig is. The answer is that he wasn't saved when exporting our map. Thats no good though! How could we fix this? Entities aren't exported by default with Nucleoid Creator Tools, this is both a blessing and a curse, as it can both avoid accidental entities from being exported in your map, but also catch new builders off guard when building their maps. To fix this, we'll need to add a filter for all pigs, Jeremy included, using the following command: <code>/map entity filter type add minecraft:pig</code>. If you'd rather add only Jeremy, instead of all pigs, you could instead use <code>/map entity add (Jeremy UUID)</code>. When exporting the map, make sure to export with entities, like in this example: <code>/map export nucleoid_example:map withEntities</code>, or else entities won't be included with the map. <br />
+<p>You might be wondering where Jeremy the pig is. The answer is that he wasn't saved when exporting our map.<br />
+Thats no good though! How could we fix this? Entities aren't exported by default with Nucleoid Creator Tools, this is both a blessing and a curse, as it can both avoid accidental entities from being exported in your map, but also catch new builders off guard when building their maps.<br />
+To fix this, we'll need to add a filter for all pigs, Jeremy included, using the following command: <code>/map entity filter type add minecraft:pig</code>. If you'd rather add only Jeremy, instead of all pigs, you could instead use <code>/map entity add (Jeremy UUID)</code>. When exporting the map, make sure to export with entities, like in this example: <code>/map export nucleoid_example:map withEntities</code>, or else entities won't be included with the map. <br />
 Now, if we update our game with the new map file, we should be all good now :D<br />
 <img alt="Jeremy survives!" src="../../assets/images/example-game/yes_jeremy.png" /><br />
-If you've been following the tutorial so far, you should have ended up with your code looking like this:
+If you've been following the tutorial so far, you should have ended up with your code looking like this:<br />
 <strong>ExampleGame.java</strong>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleGame</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ExampleGameConfig</span><span class="w"> </span><span class="n">config</span><span class="p">;</span>
@@ -1666,7 +1668,7 @@ As an extra challenge, try making it so the map identifier that is loaded is det
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "content.code.copy", "content.code.select", "content.code.annotate", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
