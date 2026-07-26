@@ -1425,8 +1425,9 @@ Lastly, we'll make use of the spawn template region to set where the player shou
 And... That's it! 🎉 If we go and join our game now, we get spawned in the right place, with our stone platform and our... <strong><em>pig</em></strong>... pen...
 <img alt="Spawn platform with no Jeremy" src="../../assets/images/example-game/no_jeremy.png" /></p>
 <h1 id="operation-rescue-jeremy">Operation: Rescue Jeremy</h1>
-<div class="admonition note no pigs were harmed in the making of this tutorial">
+<div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>No pigs were harmed in the making of this tutorial  </p>
 </div>
 <p>You might be wondering where Jeremy the pig is. The answer is that he wasn't saved when exporting our map. Thats no good though! How could we fix this? Entities aren't exported by default with Nucleoid Creator Tools, this is both a blessing and a curse, as it can both avoid accidental entities from being exported in your map, but also catch new builders off guard when building their maps. To fix this, we'll need to add a filter for all pigs, Jeremy included, using the following command: <code>/map entity filter type add minecraft:pig</code>. If you'd rather add only Jeremy, instead of all pigs, you could instead use <code>/map entity add (Jeremy UUID)</code>. Now, when we go to export our map, make sure to export with entities, like in this example: <code>/map export nucleoid_example:map withEntities</code><br />
 Now, if we update our game with the new map file, we should be all good now :D<br />
