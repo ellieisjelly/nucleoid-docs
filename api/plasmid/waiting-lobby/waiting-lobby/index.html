@@ -918,10 +918,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setsidebarlineslist" class="md-nav__link">
+  <a href="#setsidebarlineslistcomponent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        setSidebarLines(List\)
+        setSidebarLines(List&lt;Component&gt;)
       
     </span>
   </a>
@@ -1935,13 +1935,13 @@
 <h1 id="game-waiting-lobby">Game Waiting Lobby</h1>
 <p>The Waiting Lobby is a global implementation used by a lot of Plasmid Minigames. It affects things like block breaking, player damage, provides a ready-up system and handles private games for you automatically. The only methods it exposes are to add the waiting lobby and to change the sidebar's contents.<br />
 <img alt="Image showing what the waiting lobby looks like" src="../../../assets/images/api/waiting-lobby.png" />  </p>
-<h3 id="gamewaitinglobbyaddtogameactivity-waitinglobbyconfig">GameWaitingLobby.addTo(GameActivity, WaitingLobbyConfig)</h3>
+<h3 id="gamewaitinglobbyaddtogameactivity-waitinglobbyconfig">GameWaitingLobby.addTo(GameActivity, <a href="waiting-lobby.config.md">WaitingLobbyConfig</a>)</h3>
 <hr />
 <p>This is a static method that applies this waiting lobby implementation to the <a href="../../game-activity/">GameActivity</a>, given the <a href="../waiting-lobby-config/">WaitingLobbyConfig</a>. You are not meant to initialize the WaitingLobby using the constructor, as it is private.</p>
 <h3 id="setsidebartitlecomponent">setSidebarTitle(Component)</h3>
 <hr />
 <p>Sets the Title of the Waiting Lobby Sidebar.</p>
-<h3 id="setsidebarlineslist">setSidebarLines(List\<Component>)</h3>
+<h3 id="setsidebarlineslistcomponent">setSidebarLines(List&lt;Component&gt;)</h3>
 <hr />
 <p>Sets the content of the sidebar to the list of Components provided.</p>
 
