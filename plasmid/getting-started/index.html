@@ -1495,23 +1495,21 @@
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 </div>
-<p>This tutorial is currently updated for <strong>Plasmid 0.7.x</strong> and <strong>Minecraft 26.2</strong>.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">repositories</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="n">maven</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://maven.nucleoid.xyz/releases/&#39;</span><span class="w"> </span><span class="o">}</span>
-<span class="o">}</span>
+<p>This tutorial is currently updated for <strong>Plasmid 0.7.x</strong> and <strong>Minecraft 26.2</strong>.<br />
+<strong>gradle.properties</strong>
+```properties linenum="1"
+plasmid_version=0.7.2+26.2
+<div class="highlight"><pre><span></span><code>**build.gradle**
+```groovy linenums=&quot;1&quot;
+repositories {
+  maven { url = &#39;https://maven.nucleoid.xyz/releases/&#39; }
+}
 
-<span class="n">dependencies</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="c1">// ...</span>
-<span class="w">  </span><span class="n">implementation</span><span class="w"> </span><span class="s1">&#39;xyz.nucleoid:plasmid:0.7.2+26.2&#39;</span>
-<span class="o">}</span>
-</code></pre></div></td></tr></table></div>
+dependencies {
+  // ...
+  implementation &quot;xyz.nucleoid:plasmid:${project.plasmid_version}&quot;
+}
+</code></pre></div></p>
 <h3 id="creating-a-game-type">Creating a game type</h3>
 <p>A "game type" (<code>GameType</code>) is the entry-point to creating a game with Plasmid: they provide a unique identifier for your game, as well as all the information needed for it to be able to call your code when the game starts.</p>
 <p>Plasmid is designed to encourage data-driven games, and works with the concept of a "game config". A game config is essentially a specific variation of a game type! This may involve a different map to play on, or entirely different game mechanics. A game config is simply defined as a JSON file in a datapack that references your <code>GameType</code> and passes along any extra data that may be useful for configuring your game. While this may be a bit more work at first, it is very powerful in allowing games to be much easier to tweak or produce multiple variations of without duplicating code. More on configs later!</p>
