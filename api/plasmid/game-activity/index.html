@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../waiting-lobby/player-limiter-config/">
+        <link rel="prev" href="../config/player-limiter-config/">
       
       
-        <link rel="next" href="../game-space/">
+        <link rel="next" href="../game-space/game-space/">
       
       
         
@@ -777,7 +777,7 @@
   <span class="md-ellipsis">
     
   
-    Waiting Lobby
+    Config
   
 
     
@@ -790,6 +790,122 @@
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Config
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/player-limiter-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Player Limiter Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/waiting-lobby-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Waiting Lobby Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Waiting Lobby
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -862,7 +978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../waiting-lobby/waiting-lobby-config/" class="md-nav__link">
+      <a href="../config/waiting-lobby-config/" class="md-nav__link">
         
   
   
@@ -890,7 +1006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../waiting-lobby/player-limiter-config/" class="md-nav__link">
+      <a href="../config/player-limiter-config/" class="md-nav__link">
         
   
   
@@ -1030,10 +1146,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#listenstimulusevent-t-listener" class="md-nav__link">
+  <a href="#listenstimuluseventt-t-listener" class="md-nav__link">
     <span class="md-ellipsis">
       
-        listen(StimulusEvent\, T listener)
+        listen(StimulusEvent&lt;T&gt;, T listener)
       
     </span>
   </a>
@@ -1067,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../game-space/" class="md-nav__link">
+      <a href="../game-space/game-space/" class="md-nav__link">
         
   
   
@@ -1964,10 +2080,10 @@
 
 
 <h1 id="game-activity">Game Activity</h1>
-<p>Every <a href="../game-space/">GameSpace</a> in Plasmid is controlled by a GameActivity that handles the event loop and all game logic contained to this game. For a GameActivity to be considered active, it must be applied to a <a href="../game-space/">GameSpace</a>. There can only be one active GameActivity at once, however it can be easily changed by using the <a href="../game-space/#setActivity">setActivity</a> method of <a href="../game-space/">GameSpaces</a>.  </p>
+<p>Every <a href="../game-space/game-space/">GameSpace</a> in Plasmid is controlled by a GameActivity that handles the event loop and all game logic contained to this game. For a GameActivity to be considered active, it must be applied to a <a href="../game-space/game-space/">GameSpace</a>. There can only be one active GameActivity at once, however it can be easily changed by using the <a href="../game-space/game-space/#setActivity">setActivity</a> method of <a href="../game-space/game-space/">GameSpaces</a>.  </p>
 <h3 id="getgamespace">getGameSpace()</h3>
 <hr />
-<p>Returns the current <a href="../game-space/">GameSpace</a> attached to this GameActivity.</p>
+<p>Returns the current <a href="../game-space/game-space/">GameSpace</a> attached to this GameActivity.</p>
 <h3 id="setrulegameruletype-eventresult">setRule(<a href="game-rule-type.md">GameRuleType</a>, <a href="event-result.md">EventResult</a>)</h3>
 <hr />
 <p>Sets whether a given <a href="game-rule-type.md">GameRuleType</a> can be executed based on the <a href="event-result.md">EventResult</a>.</p>
@@ -1977,7 +2093,7 @@
 <h3 id="denyrulegameruletype">denyRule(<a href="game-rule-type.md">GameRuleType</a>)</h3>
 <hr />
 <p>Equivalent to setRule(<a href="game-rule-type.md">GameRuleType</a>, <a href="event-result.md#deny">EventResult.DENY</a>);</p>
-<h3 id="listenstimulusevent-t-listener">listen(StimulusEvent\<T>, T listener)</h3>
+<h3 id="listenstimuluseventt-t-listener">listen(StimulusEvent&lt;T&gt;, T listener)</h3>
 <hr />
 <p>Registers a listener for the <a href="../stimuli/stimulus-event.md">StimulusEvent</a> that gets triggered in this Activity.</p>
 <h3 id="addresourceautocloseable">addResource(AutoCloseable)</h3>
