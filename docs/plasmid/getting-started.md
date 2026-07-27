@@ -4,8 +4,12 @@
 Assuming you [already have a Fabric workspace set up](https://fabricmc.net/wiki/tutorial:setup), the first step to setting up Plasmid will be adding it to your gradle buildscript. You will need to add the maven repository as well as the plasmid dependency. The Plasmid version should be replaced with the latest version from [our versions page](https://nucleoid.xyz/use).
 
 !!! info
-   This tutorial is currently updated for **Plasmid 0.7.x** and **Minecraft 26.2**.
-
+   This tutorial is currently updated for **Plasmid 0.7.x** and **Minecraft 26.2**.  
+**gradle.properties**
+```properties linenum="1"
+plasmid_version=0.7.2+26.2
+```
+**build.gradle**
 ```groovy linenums="1"
 repositories {
   maven { url = 'https://maven.nucleoid.xyz/releases/' }
@@ -13,7 +17,7 @@ repositories {
 
 dependencies {
   // ...
-  implementation 'xyz.nucleoid:plasmid:0.7.2+26.2'
+  implementation "xyz.nucleoid:plasmid:${project.plasmid_version}"
 }
 ```
 

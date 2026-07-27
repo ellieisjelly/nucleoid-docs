@@ -1,6 +1,9 @@
 # Adding Map Support
-!!! note 
+!!! note
     This page assumes you already have familiarity with [Nucleoid Creator Tools](https://modrinth.com/mod/nucleoid-creator-tools) and the map making process. If not, check out the [Creating Maps](creating-maps.md) page to find out how to make your own maps.
+!!! info
+    This tutorial is currently updated for Plasmid 0.7.x and Minecraft 26.2.
+
 
 Any minigame requires a map, some can be generated, but most games use maps built by hand. This page will explain the process of adding hand-made map support to your game.
 
