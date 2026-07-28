@@ -6,20 +6,20 @@ Every [GameSpace](game-space/game-space.md) in Plasmid is controlled by a GameAc
 ---
 Returns the current [GameSpace](game-space/game-space.md) attached to this GameActivity.
 
-### setRule([GameRuleType](game-rule-type.md), [EventResult](event-result.md))
+### setRule([GameRuleType](game-rule-type.md), [EventResult](../stimuli/event-result.md))
 
 ---
-Sets whether a given [GameRuleType](game-rule-type.md) can be executed based on the [EventResult](event-result.md).
+Sets whether a given [GameRuleType](game-rule-type.md) can be executed based on the [EventResult](../stimuli/event-result.md).
 
 ### allow([GameRuleType](game-rule-type.md))
 
 ---
-Equivalent to setRule([GameRuleType](game-rule-type.md), [EventResult.ALLOW](event-result.md#allow));
+Equivalent to setRule([GameRuleType](game-rule-type.md), [EventResult.ALLOW](../stimuli/event-result.md#allow));
 
 ### deny([GameRuleType](game-rule-type.md))
 
 ---
-Equivalent to setRule([GameRuleType](game-rule-type.md), [EventResult.DENY](event-result.md#deny));
+Equivalent to setRule([GameRuleType](game-rule-type.md), [EventResult.DENY](../stimuli/event-result.md#deny));
 
 ### listen([StimulusEvent](../stimuli/stimulus-event.md)&lt;T&gt;, T listener)
 

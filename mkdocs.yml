@@ -41,15 +41,21 @@ nav:
       - api/index.md
       - Plasmid:
         - Config:
+            - api/plasmid/config/game-config.md
             - api/plasmid/config/player-limiter-config.md
             - api/plasmid/config/waiting-lobby-config.md
+        - Data:
+            - api/plasmid/data/game-result.md
+            - api/plasmid/data/join-intent.md
         - Util:
             - api/plasmid/util/player-ops.md
             - api/plasmid/util/player-ref.md
             - api/plasmid/util/player-set.md
         - Game Space:
+            - api/plasmid/game-space/game-space-manager.md
             - api/plasmid/game-space/game-space.md
             - api/plasmid/game-space/game-space-players.md
+            - api/plasmid/game-space/game-space-levels.md
             - api/plasmid/game-space/game-space-metadata.md
             - api/plasmid/game-space/game-space-state.md
         - Waiting Lobby:
@@ -59,6 +65,8 @@ nav:
         - api/plasmid/game-activity.md
       - Stimuli:
           - api/stimuli/index.md
+          - api/stimuli/stimulus-event.md
+          - api/stimuli/event-result.md
   - Backend:
     - backend/index.md
     - backend/http-api.md

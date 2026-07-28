@@ -73,5 +73,5 @@ Replaces the old [GameActivity](../game-activity.md) with the one provided by th
 
 ---
 Submits a request to start the game. What this request means is game-dependant, and games may choose to not listen to this event at all unless they want to respond to the `/game start` command or the [WaitingLobby](../waiting-lobby/waiting-lobby.md).  
-Returns a [GameResult](../game-result.md) that describes whether the game has started successfully or not.
+Returns a [GameResult](../data/game-result.md) that describes whether the game has started successfully or not.
 --8<-- [end:content]
