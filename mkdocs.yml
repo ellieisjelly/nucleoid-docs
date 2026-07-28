@@ -43,12 +43,20 @@ nav:
         - Config:
             - api/plasmid/config/player-limiter-config.md
             - api/plasmid/config/waiting-lobby-config.md
+        - Util:
+            - api/plasmid/util/player-ops.md
+            - api/plasmid/util/player-ref.md
+            - api/plasmid/util/player-set.md
+        - Game Space:
+            - api/plasmid/game-space/game-space.md
+            - api/plasmid/game-space/game-space-players.md
+            - api/plasmid/game-space/game-space-metadata.md
+            - api/plasmid/game-space/game-space-state.md
         - Waiting Lobby:
             - api/plasmid/waiting-lobby/waiting-lobby.md
             - api/plasmid/config/waiting-lobby-config.md
             - api/plasmid/config/player-limiter-config.md
         - api/plasmid/game-activity.md
-        - api/plasmid/game-space/game-space.md
       - Stimuli:
           - api/stimuli/index.md
   - Backend:
@@ -86,4 +94,7 @@ copyright: Content on this site is licensed CC-BY-SA; excluding code snippets, w
 markdown_extensions:
   - admonition
   - pymdownx.highlight
+  - pymdownx.snippets:
+      base_path: docs
+  - pymdownx.details
   - pymdownx.superfences

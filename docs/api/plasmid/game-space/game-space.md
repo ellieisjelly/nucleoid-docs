@@ -1,5 +1,6 @@
 # Game Space
 A GameSpace represents any active instance of a game and the space it occurs in, it controls all ServerLevels created by the game, contains all joined players and handles all related game logic.  
+--8<-- [start:content]
 ### getServer()
 
 ---
@@ -71,6 +72,6 @@ Replaces the old [GameActivity](../game-activity.md) with the one provided by th
 ### requestStart()
 
 ---
-Submits a request to start the game. What this request means is game-dependant, and games may choose to not listen to this event at all unless they want to respond to the `/game start` command or the [WaitingLobby](../waiting-lobby/index.md).  
+Submits a request to start the game. What this request means is game-dependant, and games may choose to not listen to this event at all unless they want to respond to the `/game start` command or the [WaitingLobby](../waiting-lobby/waiting-lobby.md).  
 Returns a [GameResult](../game-result.md) that describes whether the game has started successfully or not.
-
+--8<-- [end:content]

@@ -1,5 +1,7 @@
 # Player Ref
 Simple record to represent both online and offline players based on their UUID. Provides many convenience methods to turn existing classes into PlayerRefs such as
+--8<-- [start:content]
+
 ```java linenums="16"
 public static PlayerRef of(Player player)
 public static PlayerRef of(GameProfile profile)
@@ -25,3 +27,4 @@ public void ifOnline(GameSpace gameSpace, Consumer<ServerPlayer> consumer)
 public void ifOnline(ServerLevel world, Consumer<ServerPlayer> consumer)
 public void ifOnline(MinecraftServer server, Consumer<ServerPlayer> consumer)
 ```
+--8<-- [end:content]

@@ -50,8 +50,8 @@ This is where regions come in: a region is just a named area of the map which ca
 ### Creating a region
 To get started with creating a region, run: `/give @s nucleoid_creator_tools:add_region`. This gives you the _Add Region_ item, which can be used to easily define regions within your world by selecting two corners.
 
-!!! note 
-    If you have [Polymer](https://modrinth.com/mod/polymer) installed client-side, you can also get this item from the creative menu. ![A screenshot showing the Polymer Creative Menu](../assets/images/map-creation/polymer_creative_menu.png) 
+??? note "If you have [Polymer](https://modrinth.com/mod/polymer) installed client-side, you can also get this item from the creative menu."
+    ![A screenshot showing the Polymer Creative Menu](../assets/images/map-creation/polymer_creative_menu.png) 
 
 By right clicking on a block, a particle box should appear. This starts the process of defining a region by selecting the first corner. Now, as you look around, the box will shape to match the second corner. Right clicking a second time will select the current looked-at block as the second corner.
 

@@ -1,6 +1,8 @@
 # Waiting Lobby Config
 The Waiting Lobby Config determines multiple aspects of the waiting lobby, such as the amount of players needed to start a game and how long the countdown should be.  
 
+--8<-- [start:content]
+
 | Field            | Type                                            | Description                                                                               |
 |------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------|
 | playerConfig     | [PlayerLimiterConfig](player-limiter-config.md) | The Player Limiter Config for this Waiting Lobby                                          |
@@ -22,3 +24,4 @@ A small sub-record that stores the amount of time to countdown from whenever the
 |--------------|------|-----------------------------------------------------------------|
 | readySeconds | int  | The amount of seconds to countdown from when the Lobby is ready |
 | fullSeconds  | int  | The amount of seconds to countdown from when the Lobby is full  |
+--8<-- [end:content]
