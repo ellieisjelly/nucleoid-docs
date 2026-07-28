@@ -989,6 +989,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Player Set
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1005,6 +1023,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sendpacketpacket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sendPacket(Packet)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendmessagecomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sendMessage(Component)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#showtitle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        showTitle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sendactionbarcomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sendActionBar(Component)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playsoundsoundevent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        playSound(SoundEvent)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#addstatuseffectmobeffectinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        addStatusEffect(MobEffectInstance)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2096,6 +2199,34 @@
 
 <h1 id="player-set">Player Set</h1>
 <p>Represents a list of players on a server, however they're not always guaranteed to be online. All functionality will only operate on online players. Extends <a href="../player-ops/">PlayerOps</a>, and thus contains convenience methods to apply operations across the whole player set.  </p>
+<h3 id="sendpacketpacket">sendPacket(Packet)</h3>
+<hr />
+<p>Sends a packet to all players</p>
+<h3 id="sendmessagecomponent">sendMessage(Component)</h3>
+<hr />
+<p>Sends a message to all players</p>
+<h3 id="showtitle">showTitle</h3>
+<hr />
+<p>Displays a title for all players. Has many overloads for convenience such as
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">showTitle</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lengthTicks</span><span class="p">)</span>
+<span class="n">showTitle</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeInTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stayTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeOutTicks</span><span class="p">)</span>
+<span class="n">showTitle</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">Component</span><span class="w"> </span><span class="n">subtitle</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeInTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stayTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeOutTicks</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="sendactionbarcomponent">sendActionBar(Component)</h3>
+<hr />
+<p>Send a message in all player's action bars. Also has a convenience method to set the duration of the message:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">sendActionBar</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeInTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stayTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeOutTicks</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="playsoundsoundevent">playSound(SoundEvent)</h3>
+<hr />
+<p>Plays a sound to all players. Also has a convenience method to set the SoundSource, volume and pitch:
+<div class="highlight"><pre><span></span><code><span class="n">playSound</span><span class="p">(</span><span class="n">SoundEvent</span><span class="w"> </span><span class="n">sound</span><span class="p">,</span><span class="w"> </span><span class="n">SoundSource</span><span class="w"> </span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">volume</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">pitch</span><span class="p">)</span>
+</code></pre></div></p>
+<h3 id="addstatuseffectmobeffectinstance">addStatusEffect(MobEffectInstance)</h3>
+<hr />
+<p>Adds a status effect to all players</p>
 
 
 
