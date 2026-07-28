@@ -1,5 +1,5 @@
 # Player Limiter Config
-The Player Limiter Config is a Record used to configure the Player Limiter used in [Waiting Lobbies](waiting-lobby.md). It contains the following values:  
+The Player Limiter Config is a Record used to configure the Player Limiter used in [Waiting Lobbies](../waiting-lobby/waiting-lobby.md). It contains the following values:  
 
 | Field           | Type        | Description                                              |
 |-----------------|-------------|----------------------------------------------------------|

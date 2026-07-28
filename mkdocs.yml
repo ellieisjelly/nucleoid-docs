@@ -37,6 +37,20 @@ nav:
     - plasmid/creating-maps.md
     - plasmid/adding-map-support.md
     - plasmid/statistics.md
+  - API:
+      - api/index.md
+      - Plasmid:
+        - Config:
+            - api/plasmid/config/player-limiter-config.md
+            - api/plasmid/config/waiting-lobby-config.md
+        - Waiting Lobby:
+            - api/plasmid/waiting-lobby/waiting-lobby.md
+            - api/plasmid/config/waiting-lobby-config.md
+            - api/plasmid/config/player-limiter-config.md
+        - api/plasmid/game-activity.md
+        - api/plasmid/game-space/game-space.md
+      - Stimuli:
+          - api/stimuli/index.md
   - Backend:
     - backend/index.md
     - backend/http-api.md

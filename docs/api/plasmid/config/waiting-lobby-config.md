@@ -8,6 +8,7 @@ The Waiting Lobby Config determines multiple aspects of the waiting lobby, such 
 | thresholdPlayers | int                                             | The amount of players required to consider the game as ready to start                     |
 | playerVoteTimer  | int                                             | The interval of time to re-prompt players to ready up                                     |
 | countdown        | [Countdown](#countdown)                         | A record that details the amount of time to countdown from depending on the current state |
+
 It also has multiple overloads when creating a new Waiting Lobby Config to set default values such as:
 ```java linenums="1"
 public WaitingLobbyConfig(int min, int max)
