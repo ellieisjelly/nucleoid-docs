@@ -19,7 +19,7 @@
     
     
       
-        <title>Game Space Players - Nucleoid Docs</title>
+        <title>Game Space Levels - Nucleoid Docs</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#game-space-players" class="md-skip">
+        <a href="#game-space-levels" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Game Space Players
+              Game Space Levels
             
           </span>
         </div>
@@ -2063,87 +2063,23 @@
   
 
 
-<h1 id="game-space-players">Game Space Players</h1>
-<p>Represents all of the Players contained within this <a href="../game-space/">GameSpace</a>. Also provides several utilities to operate on all players at once and manage them within the <a href="../game-space/">GameSpace</a>. Extends <a href="../../util/player-set/">PlayerSet</a></p>
-<h3 id="simulateoffercollectionserverplayer-joinintent">simulateOffer(Collection&lt;ServerPlayer&gt;, <a href="../data/join-intent.md">JoinIntent</a>)</h3>
+<h1 id="game-space-levels">Game Space Levels</h1>
+<p>Represents all Levels attached to the <a href="../game-space/">GameSpace</a></p>
+<h3 id="addruntimelevelconfig">add(<a href="../config/runtime-level-config.md">RuntimeLevelConfig</a>)</h3>
 <hr />
-<p>Simulates a Join Offer to join a Player or group of Players and returns whether they're allowed to join. This logic is controlled by the active <a href="../../game-activity/">GameActivity</a> through the <a href="../events/game-player-events.md#offer">GamePlayerEvents#OFFER</a> event.
-Returns a <a href="../data/game-result.md">GameResult</a> that says whether they're allowed to join.</p>
-<h3 id="offercollectionserverplayer-joinintent">offer(Collection&lt;ServerPlayer&gt;, JoinIntent)</h3>
+<p>Creates a temporary level based on the config. When the game is closed, this level is deleted.<br />
+Returns the generated ServerLevel</p>
+<h3 id="addpersistentidentifier-runtimelevelconfig">addPersistent(Identifier, <a href="../config/runtime-level-config.md">RuntimeLevelConfig</a>)</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Experimental</p>
+</div>
 <hr />
-<p>Offers a Player or group of Players to join the game. If they're accepted, they get teleported to the game, otherwise, an error <a href="../data/game-result.md">GameResult</a> will be returned. This logic is controlled by the active <a href="../../game-activity/">GameActivity</a> through the <a href="../events/game-player-events.md#offer">GamePlayerEvents#OFFER</a> event.</p>
-<h3 id="kickserverplayer">kick(ServerPlayer)</h3>
+<p>Creates (or loads) and adds a persistent level based on the config. When the game is closed, the level is unloaded and saved. If any level using the identifier is already loaded, an exception is thrown<br />
+Returns the generated ServerLevel</p>
+<h3 id="removeserverlevel">remove(ServerLevel)</h3>
 <hr />
-<p>Attempts to remove a player from this <a href="../game-space/">GameSpace</a>. When a player is removed, they get teleported back to their previous location.</p>
-<h3 id="spectators">spectators()</h3>
-<hr />
-<p>Returns all players with the <a href="../data/join-intent.md#spectate">Spectate JoinIntent</a></p>
-<h3 id="participants">participants()</h3>
-<hr />
-<p>Returns all players with the <a href="../data/join-intent.md#play">Play JoinIntent</a></p>
-<h3 id="byintentjoinintent">byIntent(<a href="../data/join-intent.md">JoinIntent</a>)</h3>
-<hr />
-<p>Returns all players with the specified <a href="../data/join-intent.md">JoinIntent</a></p>
-<h3 id="changeintentserverplayer-joinintent">changeIntent(ServerPlayer, <a href="../data/join-intent.md">JoinIntent</a>)</h3>
-<hr />
-<p>Changes the player's stored <a href="../data/join-intent.md">JoinIntent</a></p>
-<details class="info">
-<summary>PlayerSet inherited methods</summary>
-<h3 id="constructors">Constructors</h3>
-<hr />
-<p><strong>PlayerSet.ofServer(MinecraftServer)</strong><br />
-<strong>PlayerSet.ofLevel(ServerLevel)</strong></p>
-<h3 id="contains">contains()</h3>
-<hr />
-<p>Checks if the PlayerSet contains the given player. Has many overloads for convenience:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">contains</span><span class="p">(</span><span class="n">UUID</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
-<span class="n">contains</span><span class="p">(</span><span class="n">PlayerRef</span><span class="w"> </span><span class="n">ref</span><span class="p">)</span>
-<span class="n">contains</span><span class="p">(</span><span class="n">ServerPlayer</span><span class="w"> </span><span class="n">player</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-Will return true even if the player is offline, in the case of PlayerRefs.</p>
-<h3 id="getentityuuid">getEntity(UUID)</h3>
-<hr />
-<p>Looks up any online Player in this set that matches the UUID</p>
-<h3 id="isempty">isEmpty()</h3>
-<hr />
-<p>Whether the set is empty</p>
-<h3 id="copy">copy()</h3>
-<hr />
-<p>Returns a mutable copy of this player set  </p>
-<details class="info">
-<summary>PlayerOps inherited methods</summary>
-<h3 id="sendpacketpacket">sendPacket(Packet)</h3>
-<hr />
-<p>Sends a packet to all players</p>
-<h3 id="sendmessagecomponent">sendMessage(Component)</h3>
-<hr />
-<p>Sends a message to all players</p>
-<h3 id="showtitle">showTitle</h3>
-<hr />
-<p>Displays a title for all players. Has many overloads for convenience such as
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">showTitle</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lengthTicks</span><span class="p">)</span>
-<span class="n">showTitle</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeInTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stayTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeOutTicks</span><span class="p">)</span>
-<span class="n">showTitle</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">Component</span><span class="w"> </span><span class="n">subtitle</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeInTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stayTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeOutTicks</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></p>
-<h3 id="sendactionbarcomponent">sendActionBar(Component)</h3>
-<hr />
-<p>Send a message in all player's action bars. Also has a convenience method to set the duration of the message:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">sendActionBar</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeInTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stayTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeOutTicks</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></p>
-<h3 id="playsoundsoundevent">playSound(SoundEvent)</h3>
-<hr />
-<p>Plays a sound to all players. Also has a convenience method to set the SoundSource, volume and pitch:
-<div class="highlight"><pre><span></span><code><span class="n">playSound</span><span class="p">(</span><span class="n">SoundEvent</span><span class="w"> </span><span class="n">sound</span><span class="p">,</span><span class="w"> </span><span class="n">SoundSource</span><span class="w"> </span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">volume</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">pitch</span><span class="p">)</span>
-</code></pre></div></p>
-<h3 id="addstatuseffectmobeffectinstance">addStatusEffect(MobEffectInstance)</h3>
-<hr />
-<p>Adds a status effect to all players</p>
-</details>
-</details>
+<p>Removes and deletes the temporary level in this <a href="../game-space/">GameSpace</a>. The level must've been created by <a href="#addruntimelevelconfig">GameSpaceLevels.add</a></p>
 
 
 

@@ -1040,6 +1040,61 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constructors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contains()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getentityuuid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getEntity(UUID)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isempty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        isEmpty()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        copy()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sendpacketpacket" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2199,6 +2254,31 @@
 
 <h1 id="player-set">Player Set</h1>
 <p>Represents a list of players on a server, however they're not always guaranteed to be online. All functionality will only operate on online players. Extends <a href="../player-ops/">PlayerOps</a>, and thus contains convenience methods to apply operations across the whole player set.  </p>
+<h3 id="constructors">Constructors</h3>
+<hr />
+<p><strong>PlayerSet.ofServer(MinecraftServer)</strong><br />
+<strong>PlayerSet.ofLevel(ServerLevel)</strong></p>
+<h3 id="contains">contains()</h3>
+<hr />
+<p>Checks if the PlayerSet contains the given player. Has many overloads for convenience:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">contains</span><span class="p">(</span><span class="n">UUID</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
+<span class="n">contains</span><span class="p">(</span><span class="n">PlayerRef</span><span class="w"> </span><span class="n">ref</span><span class="p">)</span>
+<span class="n">contains</span><span class="p">(</span><span class="n">ServerPlayer</span><span class="w"> </span><span class="n">player</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Will return true even if the player is offline, in the case of PlayerRefs.</p>
+<h3 id="getentityuuid">getEntity(UUID)</h3>
+<hr />
+<p>Looks up any online Player in this set that matches the UUID</p>
+<h3 id="isempty">isEmpty()</h3>
+<hr />
+<p>Whether the set is empty</p>
+<h3 id="copy">copy()</h3>
+<hr />
+<p>Returns a mutable copy of this player set  </p>
+<details class="info">
+<summary>PlayerOps inherited methods</summary>
 <h3 id="sendpacketpacket">sendPacket(Packet)</h3>
 <hr />
 <p>Sends a packet to all players</p>
@@ -2227,6 +2307,7 @@
 <h3 id="addstatuseffectmobeffectinstance">addStatusEffect(MobEffectInstance)</h3>
 <hr />
 <p>Adds a status effect to all players</p>
+</details>
 
 
 
