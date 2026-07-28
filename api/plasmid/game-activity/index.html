@@ -922,34 +922,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../waiting-lobby/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Waiting Lobby
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../waiting-lobby/waiting-lobby/" class="md-nav__link">
         
   
@@ -1124,10 +1096,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#allowrulegameruletype" class="md-nav__link">
+  <a href="#allowgameruletype" class="md-nav__link">
     <span class="md-ellipsis">
       
-        allowRule(GameRuleType)
+        allow(GameRuleType)
       
     </span>
   </a>
@@ -1135,10 +1107,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#denyrulegameruletype" class="md-nav__link">
+  <a href="#denygameruletype" class="md-nav__link">
     <span class="md-ellipsis">
       
-        denyRule(GameRuleType)
+        deny(GameRuleType)
       
     </span>
   </a>
@@ -2087,13 +2059,13 @@
 <h3 id="setrulegameruletype-eventresult">setRule(<a href="game-rule-type.md">GameRuleType</a>, <a href="event-result.md">EventResult</a>)</h3>
 <hr />
 <p>Sets whether a given <a href="game-rule-type.md">GameRuleType</a> can be executed based on the <a href="event-result.md">EventResult</a>.</p>
-<h3 id="allowrulegameruletype">allowRule(<a href="game-rule-type.md">GameRuleType</a>)</h3>
+<h3 id="allowgameruletype">allow(<a href="game-rule-type.md">GameRuleType</a>)</h3>
 <hr />
 <p>Equivalent to setRule(<a href="game-rule-type.md">GameRuleType</a>, <a href="event-result.md#allow">EventResult.ALLOW</a>);</p>
-<h3 id="denyrulegameruletype">denyRule(<a href="game-rule-type.md">GameRuleType</a>)</h3>
+<h3 id="denygameruletype">deny(<a href="game-rule-type.md">GameRuleType</a>)</h3>
 <hr />
 <p>Equivalent to setRule(<a href="game-rule-type.md">GameRuleType</a>, <a href="event-result.md#deny">EventResult.DENY</a>);</p>
-<h3 id="listenstimuluseventt-t-listener">listen(StimulusEvent&lt;T&gt;, T listener)</h3>
+<h3 id="listenstimuluseventt-t-listener">listen(<a href="../stimuli/stimulus-event.md">StimulusEvent</a>&lt;T&gt;, T listener)</h3>
 <hr />
 <p>Registers a listener for the <a href="../stimuli/stimulus-event.md">StimulusEvent</a> that gets triggered in this Activity.</p>
 <h3 id="addresourceautocloseable">addResource(AutoCloseable)</h3>

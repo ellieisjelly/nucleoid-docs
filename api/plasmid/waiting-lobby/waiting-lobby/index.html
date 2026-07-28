@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../../config/waiting-lobby-config/">
       
       
         <link rel="next" href="../../config/waiting-lobby-config/">
@@ -916,34 +916,6 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Waiting Lobby
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -2049,7 +2021,9 @@
 
 
 <h1 id="game-waiting-lobby">Game Waiting Lobby</h1>
-<p>The Waiting Lobby is a global implementation used by a lot of Plasmid Minigames. It affects things like block breaking, player damage, provides a ready-up system and handles private games for you automatically. The only methods it exposes are to add the waiting lobby and to change the sidebar's contents.<br />
+<p>The Waiting Lobby API provides a universal GameAttachment that handles everything you'd expect from the lobby phase of a minigame. It affects things like block breaking, player damage, provides a ready-up system and handles private games for you automatically.<br />
+This api exposes three main classes: the <a href="./">Waiting Lobby</a>, <a href="../../config/waiting-lobby-config/">WaitingLobbyConfig</a> and the <a href="../../config/player-limiter-config/">PlayerLimiterConfig</a>, all necessary for the Waiting Lobby to work.<br />
+The Waiting Lobby is a global implementation used by a lot of Plasmid Minigames, while not necessary, it is recommended that you also implement the Waiting Lobby for the sake of consistency between games. The only methods it exposes are to add the waiting lobby and to change the sidebar's contents.<br />
 <img alt="Image showing what the waiting lobby looks like" src="../../../assets/images/api/waiting-lobby.png" />  </p>
 <h3 id="gamewaitinglobbyaddtogameactivity-waitinglobbyconfig">GameWaitingLobby.addTo(GameActivity, <a href="../../config/waiting-lobby-config/">WaitingLobbyConfig</a>)</h3>
 <hr />
