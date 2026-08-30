@@ -806,6 +806,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../config/game-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../config/player-limiter-config/" class="md-nav__link">
         
   
@@ -2632,14 +2660,14 @@
 <strong>PlayerSet.ofLevel(ServerLevel)</strong></p>
 <h3 id="contains">contains()</h3>
 <hr />
-<p>Checks if the PlayerSet contains the given player. Has many overloads for convenience:
+<p>Checks if the PlayerSet contains the given player. Has many overloads for convenience:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">contains</span><span class="p">(</span><span class="n">UUID</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
 <span class="n">contains</span><span class="p">(</span><span class="n">PlayerRef</span><span class="w"> </span><span class="n">ref</span><span class="p">)</span>
 <span class="n">contains</span><span class="p">(</span><span class="n">ServerPlayer</span><span class="w"> </span><span class="n">player</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-Will return true even if the player is offline, in the case of PlayerRefs.</p>
+<p>Will return true even if the player is offline, in the case of PlayerRefs.</p>
 <h3 id="getentityuuid">getEntity(UUID)</h3>
 <hr />
 <p>Looks up any online Player in this set that matches the UUID</p>
@@ -2651,6 +2679,7 @@ Will return true even if the player is offline, in the case of PlayerRefs.</p>
 <p>Returns a mutable copy of this player set  </p>
 <details class="info">
 <summary>PlayerOps inherited methods</summary>
+</details>
 <h3 id="sendpacketpacket">sendPacket(Packet)</h3>
 <hr />
 <p>Sends a packet to all players</p>
@@ -2659,27 +2688,26 @@ Will return true even if the player is offline, in the case of PlayerRefs.</p>
 <p>Sends a message to all players</p>
 <h3 id="showtitle">showTitle</h3>
 <hr />
-<p>Displays a title for all players. Has many overloads for convenience such as
+<p>Displays a title for all players. Has many overloads for convenience such as</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">showTitle</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lengthTicks</span><span class="p">)</span>
 <span class="n">showTitle</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeInTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stayTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeOutTicks</span><span class="p">)</span>
 <span class="n">showTitle</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">Component</span><span class="w"> </span><span class="n">subtitle</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeInTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stayTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeOutTicks</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></table></div>
 <h3 id="sendactionbarcomponent">sendActionBar(Component)</h3>
 <hr />
-<p>Send a message in all player's action bars. Also has a convenience method to set the duration of the message:
+<p>Send a message in all player's action bars. Also has a convenience method to set the duration of the message:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">sendActionBar</span><span class="p">(</span><span class="n">Component</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeInTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">stayTicks</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fadeOutTicks</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></table></div>
 <h3 id="playsoundsoundevent">playSound(SoundEvent)</h3>
 <hr />
-<p>Plays a sound to all players. Also has a convenience method to set the SoundSource, volume and pitch:
+<p>Plays a sound to all players. Also has a convenience method to set the SoundSource, volume and pitch:</p>
 <div class="highlight"><pre><span></span><code><span class="n">playSound</span><span class="p">(</span><span class="n">SoundEvent</span><span class="w"> </span><span class="n">sound</span><span class="p">,</span><span class="w"> </span><span class="n">SoundSource</span><span class="w"> </span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">volume</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">pitch</span><span class="p">)</span>
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="addstatuseffectmobeffectinstance">addStatusEffect(MobEffectInstance)</h3>
 <hr />
 <p>Adds a status effect to all players</p>
-</details>
 
 
 

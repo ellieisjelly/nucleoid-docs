@@ -806,6 +806,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../config/game-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../config/player-limiter-config/" class="md-nav__link">
         
   
@@ -2541,7 +2569,7 @@
 This api exposes three main classes: the <a href="./">Waiting Lobby</a>, <a href="../../config/waiting-lobby-config/">WaitingLobbyConfig</a> and the <a href="../../config/player-limiter-config/">PlayerLimiterConfig</a>, all necessary for the Waiting Lobby to work.<br />
 The Waiting Lobby is a global implementation used by a lot of Plasmid Minigames, while not necessary, it is recommended that you also implement the Waiting Lobby for the sake of consistency between games. The only methods it exposes are to add the waiting lobby and to change the sidebar's contents.<br />
 <img alt="Image showing what the waiting lobby looks like" src="../../../assets/images/api/waiting-lobby.png" />  </p>
-<h3 id="gamewaitinglobbyaddtogameactivity-waitinglobbyconfig">GameWaitingLobby.addTo(GameActivity, <a href="../../config/waiting-lobby-config/">WaitingLobbyConfig</a>)</h3>
+<h3 id="gamewaitinglobbyaddtogameactivity-waitinglobbyconfig">GameWaitingLobby.addTo(<a href="../../game-activity/">GameActivity</a>, <a href="../../config/waiting-lobby-config/">WaitingLobbyConfig</a>)</h3>
 <hr />
 <p>This is a static method that applies this waiting lobby implementation to the <a href="../../game-activity/">GameActivity</a>, given the <a href="../../config/waiting-lobby-config/">WaitingLobbyConfig</a>. You are not meant to initialize the WaitingLobby using the constructor, as it is private.</p>
 <h3 id="setsidebartitlecomponent">setSidebarTitle(Component)</h3>

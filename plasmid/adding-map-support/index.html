@@ -881,6 +881,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../api/plasmid/config/game-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../api/plasmid/config/player-limiter-config/" class="md-nav__link">
         
   
@@ -2529,19 +2557,19 @@
 <h1 id="adding-map-support">Adding Map Support</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This page assumes you already have familiarity with <a href="https://modrinth.com/mod/nucleoid-creator-tools">Nucleoid Creator Tools</a> and the map making process. If not, check out the <a href="../creating-maps/">Creating Maps</a> page to find out how to make your own maps.</p>
 </div>
+<p>This page assumes you already have familiarity with <a href="https://modrinth.com/mod/nucleoid-creator-tools">Nucleoid Creator Tools</a> and the map making process. If not, check out the <a href="../creating-maps/">Creating Maps</a> page to find out how to make your own maps.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>This tutorial is currently updated for Plasmid 0.7.x and Minecraft 26.2.</p>
 </div>
+<p>This tutorial is currently updated for Plasmid 0.7.x and Minecraft 26.2.</p>
 <p>Any minigame requires a map, some can be generated, but most games use maps built by hand. This page will explain the process of adding hand-made map support to your game.</p>
 <h3 id="creating-the-map">Creating the Map</h3>
 <p>To get started, we'll create a new map with a stone platform and add a region named spawn using the Add Region stick. We'll also make a pen for our pig named Jeremy :D
 <img alt="A void map with a stone platform and a pig pen" src="../../assets/images/example-game/initial_map.png" /><br />
 We can then export this map, and add it to data/(namespace)/map_template<br />
 <img alt="File tree showing the folder structure of data/plasmid_example/map_template with a map file" src="../../assets/images/example-game/data_folder_structure.png" /><br />
-This folder will store all maps that the game will use, and we'll reference it in our code to load any map given their file name. To do this, we'll have to create some new classes in our example game, though. For now, let's create a new ExampleMap class with a field that stores the map template and the spawn region in our code: 
+This folder will store all maps that the game will use, and we'll reference it in our code to load any map given their file name. To do this, we'll have to create some new classes in our example game, though. For now, let's create a new ExampleMap class with a field that stores the map template and the spawn region in our code:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2562,7 +2590,7 @@ This folder will store all maps that the game will use, and we'll reference it i
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-This will initially error, as we never load the map file and thus we don't know where the spawn region is and what value it stores, to fix this, we will have to load the map based on the identifier that we give it (In this example, the namespace would be plasmid_example and the path would be the file name, map). To do this, we will make use of the MapTemplateSerializer.loadFromResource() method, that takes in a Server instance and an Identifier representing our map: 
+<p>This will initially error, as we never load the map file and thus we don't know where the spawn region is and what value it stores, to fix this, we will have to load the map based on the identifier that we give it (In this example, the namespace would be plasmid_example and the path would be the file name, map). To do this, we will make use of the MapTemplateSerializer.loadFromResource() method, that takes in a Server instance and an Identifier representing our map:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 6</span>
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
@@ -2575,11 +2603,11 @@ This will initially error, as we never load the map file and thus we don't know 
 <span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">GameOpenException</span><span class="p">(</span><span class="n">Component</span><span class="p">.</span><span class="na">literal</span><span class="p">(</span><span class="s">&quot;Failed to load map&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">exception</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-With the map template in hand, we can finally access all of our regions by accessing the template metadata:
+<p>With the map template in hand, we can finally access all of our regions by accessing the template metadata:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">this</span><span class="p">.</span><span class="na">spawn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">template</span><span class="p">.</span><span class="na">getMetadata</span><span class="p">().</span><span class="na">getFirstRegion</span><span class="p">(</span><span class="s">&quot;spawn&quot;</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></table></div>
 <h3 id="generating-our-map">Generating our map</h3>
-<p>This is all fine and dandy, but we have still yet to generate the map inside our game! This is done using Chunk Generators. If you remember back to our game's open method, we create a TemplateChunkGenerator to generate our level: 
+<p>This is all fine and dandy, but we have still yet to generate the map inside our game! This is done using Chunk Generators. If you remember back to our game's open method, we create a TemplateChunkGenerator to generate our level:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
@@ -2590,7 +2618,7 @@ With the map template in hand, we can finally access all of our regions by acces
 <span class="n">RuntimeLevelConfig</span><span class="w"> </span><span class="n">levelConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeLevelConfig</span><span class="p">()</span>
 <span class="w">        </span><span class="p">.</span><span class="na">setGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
-...nothing's stopping us from using the MapTemplate we acquired from our map to create this chunk generator instead!
+<p>...nothing's stopping us from using the MapTemplate we acquired from our map to create this chunk generator instead!</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
@@ -2599,7 +2627,7 @@ With the map template in hand, we can finally access all of our regions by acces
 <span class="c1">// create a chunk generator that will generate from this template that we just created</span>
 <span class="n">TemplateChunkGenerator</span><span class="w"> </span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TemplateChunkGenerator</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">server</span><span class="p">(),</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">template</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
-Lastly, we'll make use of the spawn template region to set where the player should spawn in the Player Accept event. To do this, we'll also need to store the ExampleMap in our game class.
+<p>Lastly, we'll make use of the spawn template region to set where the player should spawn in the Player Accept event. To do this, we'll also need to store the ExampleMap in our game class.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">53</span>
 <span class="normal">54</span>
 <span class="normal">55</span>
@@ -2616,20 +2644,20 @@ Lastly, we'll make use of the spawn template region to set where the player shou
 <span class="w">            </span><span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-And... That's it! 🎉 If we go and join our game now, we get spawned in the right place, with our stone platform and our... <strong><em>pig</em></strong>... pen...
+<p>And... That's it! 🎉 If we go and join our game now, we get spawned in the right place, with our stone platform and our... <strong><em>pig</em></strong>... pen...
 <img alt="Spawn platform with no Jeremy" src="../../assets/images/example-game/no_jeremy.png" /></p>
 <h3 id="operation-rescue-jeremy">Operation: Rescue Jeremy</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>No pigs were harmed in the making of this tutorial  </p>
 </div>
-<p>You might be wondering where Jeremy the pig is. The answer is that he wasn't saved when exporting our map.<br />
+<p>No pigs were harmed in the making of this tutorial<br />
+You might be wondering where Jeremy the pig is. The answer is that he wasn't saved when exporting our map.<br />
 Thats no good though! How could we fix this? Entities aren't exported by default with Nucleoid Creator Tools, this is both a blessing and a curse, as it can both avoid accidental entities from being exported in your map, but also catch new builders off guard when building their maps.<br />
-To fix this, we'll need to add a filter for all pigs, Jeremy included, using the following command: <code>/map entity filter type add minecraft:pig</code>. If you'd rather add only Jeremy, instead of all pigs, you could instead use <code>/map entity add (Jeremy UUID)</code>. When exporting the map, make sure to export with entities, like in this example: <code>/map export nucleoid_example:map withEntities</code>, or else entities won't be included with the map. <br />
+To fix this, we'll need to add a filter for all pigs, Jeremy included, using the following command: <code>/map entity filter type add minecraft:pig</code>. If you'd rather add only Jeremy, instead of all pigs, you could instead use <code>/map entity add (Jeremy UUID)</code>. When exporting the map, make sure to export with entities, like in this example: <code>/map export nucleoid_example:map withEntities</code>, or else entities won't be included with the map.<br />
 Now, if we update our game with the new map file, we should be all good now :D<br />
 <img alt="Jeremy survives!" src="../../assets/images/example-game/yes_jeremy.png" /><br />
 If you've been following the tutorial so far, you should have ended up with your code looking like this:<br />
-<strong>ExampleGame.java</strong>
+<strong>ExampleGame.java</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2725,8 +2753,8 @@ If you've been following the tutorial so far, you should have ended up with your
 <span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">gameSpace</span><span class="p">.</span><span class="na">getPlayers</span><span class="p">().</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-<p><strong>ExampleMap.java</strong>
+</code></pre></div></td></tr></table></div>
+<p><strong>ExampleMap.java</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2753,7 +2781,7 @@ If you've been following the tutorial so far, you should have ended up with your
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-That's it! 🎉 <sub>(for real this time)</sub><br />
+<p>That's it! 🎉 <sub>(for real this time)</sub><br />
 As an extra challenge, try making it so the map identifier that is loaded is determined by the game config, using the Identifier Codec. This is a major step in making your games more data driven, and is very encouraged under the Plasmid framework.</p>
 
 

@@ -806,6 +806,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../game-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../player-limiter-config/" class="md-nav__link">
         
   
@@ -2573,7 +2601,7 @@
 
 
 <h1 id="waiting-lobby-config">Waiting Lobby Config</h1>
-<p>The Waiting Lobby Config determines multiple aspects of the waiting lobby, such as the amount of players needed to start a game and how long the countdown should be.  </p>
+<p>The Waiting Lobby Config determines multiple aspects of the waiting lobby, such as the amount of players needed to start a game and how long the countdown should be.</p>
 <table>
 <thead>
 <tr>
@@ -2610,13 +2638,13 @@
 </tr>
 </tbody>
 </table>
-<p>It also has multiple overloads when creating a new Waiting Lobby Config to set default values such as:
+<p>It also has multiple overloads when creating a new Waiting Lobby Config to set default values such as:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="nf">WaitingLobbyConfig</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="p">)</span>
 <span class="kd">public</span><span class="w"> </span><span class="nf">WaitingLobbyConfig</span><span class="p">(</span><span class="n">PlayerLimiterConfig</span><span class="w"> </span><span class="n">playerConfig</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">min</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">threshold</span><span class="p">,</span><span class="w"> </span><span class="n">Countdown</span><span class="w"> </span><span class="n">countdown</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></table></div>
 <h3 id="countdown">Countdown</h3>
-<p>A small sub-record that stores the amount of time to countdown from whenever the lobby is in a ready or full state  </p>
+<p>A small sub-record that stores the amount of time to countdown from whenever the lobby is in a ready or full state</p>
 <table>
 <thead>
 <tr>

@@ -806,6 +806,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../config/game-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../config/player-limiter-config/" class="md-nav__link">
         
   
@@ -2697,10 +2725,12 @@
 <p>Tests whether this player is allowed to join based on the active filters. Returns <code>true</code> if they're allowed, false otherwise</p>
 <h3 id="setactivityconsumergameactivity">setActivity(Consumer&lt;<a href="../../game-activity/">GameActivity</a>&gt;)</h3>
 <hr />
-<p>Replaces the old <a href="../../game-activity/">GameActivity</a> with the one provided by the consumer. The old activity gets closed and all players get removed. After this, the sequence of events that get triggered are:<br />
-* <a href="../events/game-activity-events.md#create">GameActivityEvents.CREATE</a>
-* <a href="../events/game-player-events.md#add">GamePlayerEvents.ADD</a> for every player in the GameSpace
-* <a href="../events/game-activity-events.md#enable">GameActivityEvents.ENABLE</a></p>
+<p>Replaces the old <a href="../../game-activity/">GameActivity</a> with the one provided by the consumer. The old activity gets closed and all players get removed. After this, the sequence of events that get triggered are:</p>
+<ul>
+<li><a href="../events/game-activity-events.md#create">GameActivityEvents.CREATE</a></li>
+<li><a href="../events/game-player-events.md#add">GamePlayerEvents.ADD</a> for every player in the GameSpace</li>
+<li><a href="../events/game-activity-events.md#enable">GameActivityEvents.ENABLE</a></li>
+</ul>
 <h3 id="requeststart">requestStart()</h3>
 <hr />
 <p>Submits a request to start the game. What this request means is game-dependant, and games may choose to not listen to this event at all unless they want to respond to the <code>/game start</code> command or the <a href="../../waiting-lobby/waiting-lobby/">WaitingLobby</a>.<br />

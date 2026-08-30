@@ -806,6 +806,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../config/game-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../config/player-limiter-config/" class="md-nav__link">
         
   
@@ -2538,15 +2566,15 @@
 
 <h1 id="game-space-levels">Game Space Levels</h1>
 <p>Represents all Levels attached to the <a href="../game-space/">GameSpace</a></p>
-<h3 id="addruntimelevelconfig">add(<a href="../config/runtime-level-config.md">RuntimeLevelConfig</a>)</h3>
+<h3 id="addruntimelevelconfig">add(RuntimeLevelConfig)</h3>
 <hr />
 <p>Creates a temporary level based on the config. When the game is closed, this level is deleted.<br />
 Returns the generated ServerLevel</p>
-<h3 id="addpersistentidentifier-runtimelevelconfig">addPersistent(Identifier, <a href="../config/runtime-level-config.md">RuntimeLevelConfig</a>)</h3>
+<h3 id="addpersistentidentifier-runtimelevelconfig">addPersistent(Identifier, RuntimeLevelConfig)</h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Experimental</p>
 </div>
+<p>Experimental</p>
 <hr />
 <p>Creates (or loads) and adds a persistent level based on the config. When the game is closed, the level is unloaded and saved. If any level using the identifier is already loaded, an exception is thrown<br />
 Returns the generated ServerLevel</p>

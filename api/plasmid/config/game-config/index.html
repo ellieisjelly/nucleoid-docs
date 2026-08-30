@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../../../">
+      
+      
+        <link rel="next" href="../player-limiter-config/">
       
       
         
@@ -251,10 +255,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../../" class="md-tabs__link">
           
   
@@ -603,26 +609,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -640,7 +651,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -683,26 +694,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
             
   
   
@@ -720,7 +736,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -735,8 +751,10 @@
                 
   
   
+    
   
   
+  
     
     
     
@@ -747,11 +765,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
@@ -772,7 +790,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -782,6 +800,44 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
             
               
                 
@@ -1528,17 +1584,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
             
   
   
@@ -2436,8 +2495,8 @@
 
 
 <h1 id="game-config">Game Config</h1>
-<p>A Game Config is a specific variation of a <a href="../game-type.md">GameType</a>, what this means is very game-specific, but it is expected that games utilize GameConfigs to change game behaviour in a data-driven way, such as changing maps or adding different game mechanics.<br />
-You are not meant to instantiate this class in code, but rather use datapacks to store them based on a given Codec. You can define what Codec a GameConfig will use to parse when creating your <a href="../game-type.md">GameType</a></p>
+<p>A Game Config is a specific variation of a <a href="../../game-type/">GameType</a>, what this means is very game-specific, but it is expected that games utilize GameConfigs to change game behaviour in a data-driven way, such as changing maps or adding different game mechanics.<br />
+You are not meant to instantiate this class in code, but rather use datapacks to store them based on a given Codec. You can define what Codec a GameConfig will use to parse when creating your <a href="../../game-type/">GameType</a></p>
 <table>
 <thead>
 <tr>
@@ -2449,13 +2508,13 @@ You are not meant to instantiate this class in code, but rather use datapacks to
 <tbody>
 <tr>
 <td>type</td>
-<td><a href="../game-type.md">GameType</a>&lt;T&gt;</td>
-<td>The <a href="../game-type.md">GameType</a> associated with this GameConfig</td>
+<td><a href="../../game-type/">GameType</a>&lt;T&gt;</td>
+<td>The <a href="../../game-type/">GameType</a> associated with this GameConfig</td>
 </tr>
 <tr>
 <td>name</td>
 <td>Component</td>
-<td>The name for this GameConfig, defaulted to the <a href="../game-type.md">GameType</a> name if none specified</td>
+<td>The name for this GameConfig, defaulted to the <a href="../../game-type/">GameType</a> name if none specified</td>
 </tr>
 <tr>
 <td>shortName</td>
