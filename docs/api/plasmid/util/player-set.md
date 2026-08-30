@@ -40,7 +40,9 @@ Whether the set is empty
 
 ---
 
-Returns a mutable copy of this player set  
+Returns a mutable copy of this player set
+
+<!-- prettier-ignore -->
 ??? info "PlayerOps inherited methods"
---8<-- "api/plasmid/util/player-ops.md:content"
+    --8<-- "api/plasmid/util/player-ops.md:content"
 --8<-- [end:content]

@@ -46,6 +46,7 @@ Returns all players with the specified [JoinIntent](../data/join-intent.md)
 
 Changes the player's stored [JoinIntent](../data/join-intent.md)
 
+<!-- prettier-ignore -->
 ??? info "PlayerSet inherited methods"
---8<-- "api/plasmid/util/player-set.md:content"
+    --8<-- "api/plasmid/util/player-set.md:content"
 --8<-- [end:content]
