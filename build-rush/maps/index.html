@@ -2557,11 +2557,14 @@
 <h1 id="adding-a-map">Adding a map</h1>
 <h2 id="creating-the-map-template">Creating the map template</h2>
 <p>Please follow the <a href="../../plasmid/creating-maps/">Plasmid tutorial</a> on how to create a map template.</p>
-<p>A Build Rush map template needs the following regions:
-- <code>center_plot</code>: the center of the map, where the players will be teleported to at first, and where the chosen build may appear at points. (only 1)
-- <code>plot</code>: the plots where the players will build. There must be at least as many plots as the max amount of players in the game configuration (see below).</p>
+<p>A Build Rush map template needs the following regions:</p>
+<ul>
+<li><code>center_plot</code>: the center of the map, where the players will be teleported to at first, and where the chosen build may appear at points. (only 1)</li>
+<li><code>plot</code>: the plots where the players will build. There must be at least as many plots as the max amount of players in the game configuration (see below).</li>
+</ul>
 <p>A map can only support one size of builds. The size of the chosen builds is determined by the size of the plots.</p>
 <p>All plots must be of the same size (width and length) and be 1 block high.</p>
+<!-- prettier-ignore -->
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you get anything wrong with your map, the game will not start. You can check the logs to see what went wrong.</p>
@@ -2571,7 +2574,7 @@
 <p>Please follow the <a href="../../plasmid/getting-started/#creating-a-config">Plasmid tutorial</a> on how to create a game configuration.</p>
 <p>You now need to add a game configuration that will use your map.
 Game configurations are stored in the <code>games</code> folder of the datapack, so create your <code>.json</code> file there.</p>
-<p>Here are the configuration fields added by Build Rush, on top of the ones added by Plasmid:
+<p>Here are the configuration fields added by Build Rush, on top of the ones added by Plasmid:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2592,24 +2595,24 @@ Game configurations are stored in the <code>games</code> folder of the datapack,
 <span class="normal">18</span>
 <span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="c1">// ...</span>
-<span class="w">  </span><span class="nv">&quot;players&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nv">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">    </span><span class="nv">&quot;threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span>
-<span class="w">    </span><span class="nv">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">16</span>
+<span class="w">  </span><span class="nv">players</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">min</span><span class="p">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">threshold</span><span class="p">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">max</span><span class="p">:</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nv">&quot;map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nv">&quot;template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;build_rush:my_map&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nv">&quot;nametag_offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span>
-<span class="w">    </span><span class="nv">&quot;nametag_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span>
-<span class="w">    </span><span class="nv">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nv">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jeb_&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nv">&quot;uuid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;853c80ef-3c37-49fd-aa49-938b674adae6&quot;</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="nv">map</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">template</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;build_rush:my_map&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">nametag_offset</span><span class="p">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">nametag_size</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">author</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jeb_&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nv">uuid</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;853c80ef-3c37-49fd-aa49-938b674adae6&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nv">&quot;builds&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#build_rush:generic&quot;</span>
+<span class="w">  </span><span class="nv">builds</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#build_rush:generic&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="c1">// ...</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></table></div>
 <p>The game type is <code>build_rush:standard</code>.</p>
 <table>
 <thead>
@@ -2678,16 +2681,18 @@ Game configurations are stored in the <code>games</code> folder of the datapack,
 </tbody>
 </table>
 <p>The <code>#build_rush:generic</code> tag includes most of the available builds.</p>
+<!-- prettier-ignore -->
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The builds field can contain any builds, even if they are not compatible with the map. Only compatible builds from the entry list will get used.</p>
 </div>
 <h2 id="notes-on-contributions">Notes on contributions</h2>
-<p>If you are contributing to the Build Rush repository, please make sure to follow this checklist before submitting your pull request:
-- Your map template and game configuration have the same name.
-- Your game configuration is in the correct subfolder: <code>small</code> is for maps compatible with 5x5 builds, <code>medium</code> is for 7x7, and <code>large</code> is for 9x9.
-- Your game configuration is listed in the <code>random</code> game configuration in the same subfolder.
-- The game configuration follows this example:
+<p>If you are contributing to the Build Rush repository, please make sure to follow this checklist before submitting your pull request:</p>
+<ul>
+<li>Your map template and game configuration have the same name.</li>
+<li>Your game configuration is in the correct subfolder: <code>small</code> is for maps compatible with 5x5 builds, <code>medium</code> is for 7x7, and <code>large</code> is for 9x9.</li>
+<li>Your game configuration is listed in the <code>random</code> game configuration in the same subfolder.</li>
+<li>The game configuration follows this example:
   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2702,20 +2707,21 @@ Game configurations are stored in the <code>games</code> folder of the datapack,
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="c1">// ...</span>
-<span class="w">  </span><span class="nv">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nv">&quot;translate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;game.build_rush.small.with_map&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// change &quot;small&quot; with &quot;medium&quot; or &quot;large&quot; depending on the size of your plots</span>
-<span class="w">      </span><span class="nv">&quot;with&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nv">name</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">translate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;game.build_rush.small.with_map&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// change &quot;small&quot; with &quot;medium&quot; or &quot;large&quot; depending on the size of your plots</span>
+<span class="w">    </span><span class="nv">with</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nv">&quot;translate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;map.build_rush.my_map&quot;</span><span class="w">         </span><span class="c1">// change &quot;my_map&quot; with the identifier of your map (and translate it in lang/en_us.json)</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
+<span class="w">        </span><span class="nv">translate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;map.build_rush.my_map&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// change &quot;my_map&quot; with the identifier of your map (and translate it in lang/en_us.json)</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nv">&quot;icon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;minecraft:diamond&quot;</span><span class="p">,</span><span class="w">                       </span><span class="c1">// as your game will show up in the list of games, you need an item to represent it</span>
+<span class="w">  </span><span class="nv">icon</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;minecraft:diamond&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// as your game will show up in the list of games, you need an item to represent it</span>
 <span class="w">  </span><span class="c1">// ...</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-- Your game configuration has an icon.
-- The build list is large enough, to counter the feeling of repetitiveness. If you don't have enough builds, leave the builds empty for the game to use the <code>#build_rush:generic</code> tag.</p>
+</code></pre></div></td></tr></table></div></li>
+<li>Your game configuration has an icon.</li>
+<li>The build list is large enough, to counter the feeling of repetitiveness. If you don't have enough builds, leave the builds empty for the game to use the <code>#build_rush:generic</code> tag.</li>
+</ul>
 
 
 

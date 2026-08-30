@@ -2616,6 +2616,7 @@
 
 
 <h1 id="implementing-statistics">Implementing statistics</h1>
+<!-- prettier-ignore -->
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>This tutorial is currently updated for <strong>Plasmid 0.7.x</strong> and <strong>Minecraft 26.2</strong>.</p>
@@ -2625,7 +2626,7 @@
 <p>This guide assumes that you have a minigame already implemented and want to add support for tracking statistics. If you simply would like to create a minigame, see the <a href="../getting-started/">Getting Started guide</a>.</p>
 <h2 id="bundles-of-fun">Bundles of fun</h2>
 <p>(Well it might not seem fun, but its the first step for implementing statistics into your game.)</p>
-<p>The first step for implementing statistics is getting your hands on a <code>GameStatisticBundle</code>, which is a class provided by plasmid that holds per-player and global statistics for your current game. You can do this quite easily within the constructor of your <code>ExampleGame</code> class like this:
+<p>The first step for implementing statistics is getting your hands on a <code>GameStatisticBundle</code>, which is a class provided by plasmid that holds per-player and global statistics for your current game. You can do this quite easily within the constructor of your <code>ExampleGame</code> class like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleGame</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="cm">/* other fields */</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">GameStatisticBundle</span><span class="w"> </span><span class="n">statistics</span><span class="p">;</span>
@@ -2639,13 +2640,14 @@
 
 <span class="w">    </span><span class="cm">/* other game logic */</span>
 <span class="p">}</span>
-</code></pre></div></p>
-<p>You also need to provide a translation for the name of your bundle, with the translation key in the form <code>statistic.bundle.&lt;namespace&gt;</code>. This <code>namespace</code> is whatever you passed into <code>gameSpace.getStatistics().bundle()</code>, so double check it matches. This might look like:
+</code></pre></div>
+<p>You also need to provide a translation for the name of your bundle, with the translation key in the form <code>statistic.bundle.&lt;namespace&gt;</code>. This <code>namespace</code> is whatever you passed into <code>gameSpace.getStatistics().bundle()</code>, so double check it matches. This might look like:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;statistic.bundle.examplegame&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Example Game&quot;</span>
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="getting-some-keys">Getting some keys</h2>
 <p>Time to get implementi- Oh, we still need to do something else first :/</p>
 <p>Once you have a <code>GameStatisticsBundle</code>, the next step is to actually increment some statistics, and this is where the specifics can become different between games, as every game is somewhat unique.</p>
+<!-- prettier-ignore -->
 <div class="admonition note">
 <p class="admonition-title">What are StatisticKeys?</p>
 <p><code>StatisticKey</code>s are a type-safe identifier for a specific statistic, and internally store both an <code>Identifier</code>.</p>
@@ -2659,33 +2661,35 @@
 <li><code>QUICKEST_TIME</code></li>
 </ul>
 <h3 id="custom-keys">Custom keys</h3>
-<p>You can create your own <code>StatisticKey</code>s and store them in <code>public static final</code> fields in a dedicated class, usually named something like <code>MyGameStatistics</code>.
+<p>You can create your own <code>StatisticKey</code>s and store them in <code>public static final</code> fields in a dedicated class, usually named something like <code>MyGameStatistics</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyGameStatistics</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">StatisticKey</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">SOME_COOL_STAT</span><span class="w"> </span><span class="o">=</span>
 <span class="w">        </span><span class="c1">// or StatisticKey.doubleKey or StatisticKey.floatKey</span>
 <span class="w">        </span><span class="n">StatisticKey</span><span class="p">.</span><span class="na">intKey</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Identifier</span><span class="p">(</span><span class="n">MyGame</span><span class="p">.</span><span class="na">ID</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;some_cool_stat&quot;</span><span class="p">));</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>If you implement custom keys, you need to ensure you provide translations for their names, in the form <code>statistic.&lt;id namespace&gt;.&lt;id path&gt;</code>, where <code>id namespace</code> and <code>id path</code> are the namespace and path of the <code>Identifier</code> you passed as the first argument when creating the key.</p>
+<!-- prettier-ignore -->
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you think other minigames could use a custom <code>StatisticKey</code> you implement, mention it in <code>#tools-and-libraries</code> <a href="https://nucleoid.xyz/discord">on Discord</a> and it might get included in plasmid's <code>StatisticKeys</code> class.</p>
 </div>
 <h2 id="incrementing-statistics">Incrementing statistics</h2>
 <p>Now for the actually interesting part.</p>
+<!-- prettier-ignore -->
 <div class="admonition info">
 <p class="admonition-title">Global and per-player statistics</p>
 <p>Per-player statistics are fairly self-explanatory; they're things like <code>KILLS</code> or <code>QUICKEST_TIME</code> that apply to a single player.
 Global statistics are a little different, as their values are not associated with a particular player, but with the entire game session.
 Global statistics can be used to store things like the number of teams in the game or the length of a course.</p>
 </div>
-<p>Incrementing the statistics uses a fluent API style like the following:
+<p>Incrementing the statistics uses a fluent API style like the following:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// For a player</span>
 <span class="k">this</span><span class="p">.</span><span class="na">statistics</span><span class="p">.</span><span class="na">forPlayer</span><span class="p">(</span><span class="n">player</span><span class="p">).</span><span class="na">increment</span><span class="p">(</span><span class="n">StatisticKeys</span><span class="p">.</span><span class="na">DEATHS</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="c1">// Or a global statistic</span>
 <span class="k">this</span><span class="p">.</span><span class="na">statistics</span><span class="p">.</span><span class="na">global</span><span class="p">().</span><span class="na">set</span><span class="p">(</span><span class="n">MyGameStatistics</span><span class="p">.</span><span class="na">TEAM_COUNT</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
 </code></pre></div>
-<code>player</code> can be either a <code>UUID</code>, <code>PlayerRef</code> or <code>ServerPlayerEntity</code>.</p>
+<p><code>player</code> can be either a <code>UUID</code>, <code>PlayerRef</code> or <code>ServerPlayerEntity</code>.</p>
 <p>The final step is to scatter these increments around your minigame and collect statistics for whatever seems interesting for players.</p>
 <h2 id="finished">Finished!</h2>
 <p>And then that's it, your minigame now has statistics support 🎉!</p>
