@@ -1,4 +1,5 @@
 # API Reference
+
 Here you can find the API Reference for multiple of Nucleoid projects, all ensured to make the game creation experience as easy and trouble-free as possible.  
 !!! info
-    The API reference is currently updated for Plasmid 0.7.x and Minecraft 26.2.
+The API reference is currently updated for Plasmid 0.7.x and Minecraft 26.2.

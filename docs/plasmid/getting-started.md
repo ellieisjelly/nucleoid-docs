@@ -22,11 +22,11 @@ dependencies {
 ```
 
 ### Creating a game type
-A "game type" (`GameType`) is the entry-point to creating a game with Plasmid: they provide a unique identifier for your game, as well as all the information needed for it to be able to call your code when the game starts.
+A "game type" (`[GameType](../api/plasmid/game-type.md)`) is the entry-point to creating a game with Plasmid: they provide a unique identifier for your game, as well as all the information needed for it to be able to call your code when the game starts.
 
 Plasmid is designed to encourage data-driven games, and works with the concept of a "game config". A game config is essentially a specific variation of a game type! This may involve a different map to play on, or entirely different game mechanics. A game config is simply defined as a JSON file in a datapack that references your `GameType` and passes along any extra data that may be useful for configuring your game. While this may be a bit more work at first, it is very powerful in allowing games to be much easier to tweak or produce multiple variations of without duplicating code. More on configs later!
 
-To register a `GameType`, you will need to call `GameTypes.register()` in your `ModInitializer` class. A call to register a `GameType` may look something like:
+To register a `[GameType](../api/plasmid/game-type.md)`, you will need to call `GameTypes.register()` in your `ModInitializer` class. A call to register a `[GameType](../api/plasmid/game-type.md)` may look something like:
 ```java linenums="1"
 GameTypes.register(
         Identifier.fromNamespaceAndPath("plasmid_example", "example"),
@@ -107,7 +107,7 @@ Now that we know what data our config should hold, we can create an actual game 
 
 All game configs need to be located in your mod resources (or [datapack](https://github.com/NucleoidMC/game-configs)!) at `data/<namespace>/plasmid/game/<id>.json`. For the purpose of a mod, the `namespace` should just be your mod id, and the `id` can be any unique name that will later be used to reference your game config from inside Minecraft.
 
-Plasmid requires only 1 JSON field from the config, while the rest is loaded as per the config codec that you set up. There are however also some additional optional fields which may be useful to define. The only required field is the `type`, which refers to the `GameType` you created earlier in `namespace:path` format (e.g. in our case, `plasmid_example:example`).
+Plasmid requires only 1 JSON field from the config, while the rest is loaded as per the config codec that you set up. There are however also some additional optional fields which may be useful to define. The only required field is the `type`, which refers to the `[GameType](../api/plasmid/game-type.md)` you created earlier in `namespace:path` format (e.g. in our case, `plasmid_example:example`).
 
 For our purposes, our game config at `data/plasmid_example/plasmid/game/hello_world_example.json` will look like:
 ```json linenums="1"
@@ -152,7 +152,7 @@ For example, we may define our `data/plasmid_example/lang/en_us.json` as:
 ### Writing the code to start our game
 Now that we have set up a config and have told Plasmid how to read from it, we can finally write the code to actually start our game.
 
-For the purpose of this example, let's create an `ExampleGame` class. We will use this class to hold the state of the game as well as our `ExampleGameConfig` that got loaded. For now though, we just need to create this `open` function that we referenced to the `GameType`.
+For the purpose of this example, let's create an `ExampleGame` class. We will use this class to hold the state of the game as well as our `ExampleGameConfig` that got loaded. For now though, we just need to create this `open` function that we referenced to the `[GameType](../api/plasmid/game-type.md)`.
 
 This should look like:
 ```java linenums="1"
@@ -181,11 +181,11 @@ public class ExampleGame {
 
 There is a lot to unpack here, but it's not too complex if we break it down. Our `open` will be called whenever a player starts this game. The function takes a `GameOpenContext`, which holds the data from our JSON config (`context.config()`), and must return a `GameOpenProcedure`, which instructs Plasmid how it should continue to set up the game. It is worth nothing that this function is run asynchronously on the thread pool, so it is safe to run whatever slow code here before the game starts.
 
-The `GameOpenProcedure` is created from the `GameOpenContext.openWithLevel` function, and takes in a `RuntimeLevelConfig` as well as a lambda that accepts a `GameActivity` and `ServerLevel`. A runtime level is a concept within Plasmid that represents the fully isolated and temporary level that the game takes place within. It is automatically deleted when the game finishes. When a player joins the game, their inventory will be cleared, and when they leave, it will be restored back to them. A game activity is a specific set of logic that is running within a game: this is what we will configure to change game behaviour. We can switch the activity within a game at any point.
+The `GameOpenProcedure` is created from the `GameOpenContext.openWithLevel` function, and takes in a `RuntimeLevelConfig` as well as a lambda that accepts a `[GameActivity](../api/plasmid/game-activity.md)` and `ServerLevel`. A runtime level is a concept within Plasmid that represents the fully isolated and temporary level that the game takes place within. It is automatically deleted when the game finishes. When a player joins the game, their inventory will be cleared, and when they leave, it will be restored back to them. A game activity is a specific set of logic that is running within a game: this is what we will configure to change game behaviour. We can switch the activity within a game at any point.
 
 The `RuntimeLevelConfig` describes how this level should be created. The most important thing to be configured within here is the chunk generator: this tells the game how the level should generate. It would be possible to, for example, pass the overworld chunk generator here, but for our purpose, we're creating an empty level with a single stone block. This is handled through the convenience `TemplateChunkGenerator`: this takes a `MapTemplate`, which is just a very basic level that contains some blocks! The generator then loads from that into the level itself.
 
-Finally, we need to address what to do in the lambda with the `GameActivity` parameter. The code inside this lambda will run on the *main server thread*, and is used to run the actual game setup code. This mainly involves registering event listeners, or setting global rules.
+Finally, we need to address what to do in the lambda with the `[GameActivity](../api/plasmid/game-activity.md)` parameter. The code inside this lambda will run on the *main server thread*, and is used to run the actual game setup code. This mainly involves registering event listeners, or setting global rules.
 
 Event tip: we make use of [Stimuli](https://github.com/NucleoidMC/stimuli) for handling many events in games, so any event from there can be used within Plasmid.
 
@@ -246,9 +246,9 @@ activity.listen(GamePlayerEvents.ADD, player -> {
 });
 ```
 
-So we've added logic to send a message within the listener, but what is a `GameSpace`? A `GameSpace` is a concept introduced by Plasmid which, as the name implies, represents the _space_ within which a game is occurring. For all our purposes, that space is just this one dimension that the game is playing within. The `GameSpace` is useful for us in that it keeps track of all the players within it, as well as the `ServerLevel` that the game is taking place within. Here, we access the `GameSpace` through `GameActivity.getGameSpace()`.
+So we've added logic to send a message within the listener, but what is a `[GameSpace](../api/plasmid/game-space/game-space.md)`? A `[GameSpace](../api/plasmid/game-space/game-space.md` is a concept introduced by Plasmid which, as the name implies, represents the _space_ within which a game is occurring. For all our purposes, that space is just this one dimension that the game is playing within. The `[GameSpace](../api/plasmid/game-space/game-space.md` is useful for us in that it keeps track of all the players within it, as well as the `ServerLevel` that the game is taking place within. Here, we access the `[GameSpace](../api/plasmid/game-space/game-space.md` through `GameActivity.getGameSpace()`.
 
-Working with players additionally goes through a different Plasmid API: a `PlayerSet`. A `PlayerSet` represents just a list of players, and it can be iterated over or queried, but additionally provides utilities for performing bulk operations over many players. For example, sending a message! Here, we use `PlayerSet.sendMessage()` to send our greeting to every player within the game.
+Working with players additionally goes through a different Plasmid API: a `[PlayerSet](../api/plasmid/util/player-set.md)`. A `[PlayerSet](../api/plasmid/util/player-set.md)` represents just a list of players, and it can be iterated over or queried, but additionally provides utilities for performing bulk operations over many players. For example, sending a message! Here, we use `[PlayerSet.sendMessage()](../api/plasmid/util/player-set.md#sendmessagecomponent)` to send our greeting to every player within the game.
 
 Tada! 🎉 We have a working game! But before we test it, let's do some minor reorganization. With all these handlers and lambdas, our code inside `createOpenProcedure` is going to get quite lengthy very quickly! It would be nice if we can put all event listeners on our `ExampleGame` object instead.
 
@@ -306,7 +306,7 @@ public class ExampleGame {
 ```
 
 ### Testing the game!
-Once everything compiles, we can finally launch up Minecraft. If our `GameType` is all correctly set up and game config JSON in place, once opening a world, we should be able to start our game by running: `/game open <id>`. (Remember, this is referencing the name of the JSON file and not the GameType!)
+Once everything compiles, we can finally launch up Minecraft. If our `[GameType](../api/plasmid/game-type.md)` is all correctly set up and game config JSON in place, once opening a world, we should be able to start our game by running: `/game open <id>`. (Remember, this is referencing the name of the JSON file and not the GameType!)
 
 So in our case: `/game open plasmid_example:hello_world_example`
 ...and we should be joined into our void world with a stone block with a lovely greeting!

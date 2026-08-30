@@ -88,7 +88,9 @@ To work with data on the global map, the commands function similarly:
   - `/map data set <data>`: overwrites the existing data on the map
   - `/map data merge <data>`: merges the given data with the existing data on the map
 
+## Working with entities
+By default, Nucleoid Creator Tools does not export entities with your map. To do this, you must manually allow them to be included in the map export. You can do this by either using the `/map entity add <entity>` to add one specific entity or add a broader entity filter to catch all entities of the same type using `/map entity filter type add <entity type>`.
 ## Exporting maps
-Once your map is complete, you will want to export it into a file that can be loaded by Plasmid. This can be done simply by running: `/map export <id>`.
+Once your map is complete, you will want to export it into a file that can be loaded by Plasmid. This can be done simply by running: `/map export <id>`. If you'd like to export with entities, you must instead use `/map export <id> withEntities` (This does not bypass the need to include entities in your export, as described by the earlier section)
 
 The exported map will be placed in `/nucleoid_creator_tools/exports/<namespace>/map_template/<path>.nbt`
