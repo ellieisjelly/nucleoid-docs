@@ -19,7 +19,7 @@
     
     
       
-        <title>Global widgets - Nucleoid Docs</title>
+        <title>Global Widgets - Nucleoid Docs</title>
       
     
     
@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#global-widgets" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -98,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Global widgets
+              Global Widgets
             
           </span>
         </div>
@@ -1364,6 +1369,34 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../Game Widgets - api/plasmid/widgets/global-widget.md - api/plasmid/widgets/game-widget.md - api/plasmid/widgets/bossbar-widget.md - api/plasmid/widgets/sidebar-widget.md - api/plasmid/widgets-scrollable-sidebar-widget.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -1378,10 +1411,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
             
   
   
@@ -1399,8 +1432,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2458,9 +2491,39 @@
   
 
 
-  <h1>Global widgets</h1>
-
-
+<h1 id="global-widgets">Global Widgets</h1>
+<p>Utility for applying <a href="../game-widget/">GameWidgets</a> to all players in a given <a href="../../game-activity/">GameActivity</a></p>
+<h3 id="static-addtogameactivity">static addTo(<a href="../../game-activity/">GameActivity</a>)</h3>
+<hr />
+<p>Creates a game-activity-wide instance of GlobalWidgets. All widgets added to this will be displayed to all players.</p>
+<h3 id="addwidgetgamewidget">addWidget(<a href="../game-widget/">GameWidget</a>)</h3>
+<hr />
+<p>Adds a new <a href="../game-widget/">GameWidget</a> to all players in the activity.
+Returns the <a href="../game-widget/">GameWidget</a> for you to customize.</p>
+<h3 id="addsidebar">addSidebar()</h3>
+<h3 id="addsidebarcomponent">addSidebar(Component)</h3>
+<h3 id="addsidebarpredicateserverplayer">addSidebar(Predicate&lt;ServerPlayer&gt;)</h3>
+<h3 id="addsidebarcomponent-predicateserverplayer">addSidebar(Component, Predicate&lt;ServerPlayer&gt;)</h3>
+<hr />
+<p>Adds a new <a href="../sidebar-widget/">SidebarWidget</a> to all players in the activity.
+Returns the <a href="../sidebar-widget/">SidebarWidget</a> for you to customize.</p>
+<h3 id="addscrollablesidebarint">addScrollableSidebar(int)</h3>
+<h3 id="addscrollablesidebarint-component">addScrollableSidebar(int, Component)</h3>
+<h3 id="addscrollablesidebarint-predicateserverplayer">addScrollableSidebar(int, Predicate&lt;ServerPlayer&lt;)</h3>
+<h3 id="addscrollablesidebarcomponent-int-predicateserverplayer">addScrollableSidebar(Component, int, Predicate&lt;ServerPlayer&lt;)</h3>
+<p>Adds a new <a href="../scrollable-sidebar-widget/">ScrollableSidebarWidget</a> to all players in the activity.
+Returns the <a href="../scrollable-sidebar-widget/">ScrollableSidebarWidget</a> for you to customize.</p>
+<h3 id="addbossbarcomponent">addBossBar(Component)</h3>
+<h3 id="addbossbarcomponent-bossbarcolor-bossbaroverlay">addBossBar(Component, BossBarColor, BossBarOverlay)</h3>
+<hr />
+<p>Adds a new <a href="../bossbar-widget/">BossBarWidget</a> to all players in the activity.
+Returns the <a href="../bossbar-widget/">BossBarWidget</a> for you to customize.</p>
+<h3 id="removewidgetgamewidget">removeWidget(<a href="../game-widget/">GameWidget</a>)</h3>
+<hr />
+<p>Removes a <a href="../game-widget/">GameWidget</a> from the list of widgets applied</p>
+<h3 id="close">close()</h3>
+<hr />
+<p>Removes all <a href="../game-widget/">GameWidgets</a> applied.</p>
 
 
 

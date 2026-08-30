@@ -19,7 +19,7 @@
     
     
       
-        <title>Bossbar widget - Nucleoid Docs</title>
+        <title>Boss Bar Widget - Nucleoid Docs</title>
       
     
     
@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#boss-bar-widget" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -98,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bossbar widget
+              Boss Bar Widget
             
           </span>
         </div>
@@ -1364,6 +1369,34 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../Game Widgets - api/plasmid/widgets/global-widget.md - api/plasmid/widgets/game-widget.md - api/plasmid/widgets/bossbar-widget.md - api/plasmid/widgets/sidebar-widget.md - api/plasmid/widgets-scrollable-sidebar-widget.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -1378,10 +1411,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
             
   
   
@@ -1399,8 +1432,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2458,9 +2491,32 @@
   
 
 
-  <h1>Bossbar widget</h1>
-
-
+<h1 id="boss-bar-widget">Boss Bar Widget</h1>
+<p>Displays a Boss Bar at the top of the player's screen</p>
+<h3 id="constructors">Constructors</h3>
+<ul>
+<li>BossBarWidget(UUID, Component, BossBarColor, BossBarOverlay)</li>
+<li>BossBarWidget(Component)</li>
+</ul>
+<h3 id="settitlecomponent">setTitle(Component)</h3>
+<hr />
+<p>Sets the title of the Boss Bar</p>
+<h3 id="setprogressfloat">setProgress(float)</h3>
+<hr />
+<p>Sets how full the progress bar is (range of 0 - 1f)</p>
+<h3 id="setstylebossbarcolor-bossbaroverlay">setStyle(BossBarColor, BossBarOverlay)</h3>
+<hr />
+<p>Sets the visual appearance of the Boss Bar</p>
+<h3 id="setvisibleboolean">setVisible(boolean)</h3>
+<hr />
+<p>Sets whether the Boss Bar is visible</p>
+<!-- prettier-ignore -->
+<details class="info">
+<summary>Game Widget inherited methods</summary>
+<h3 id="addplayerplayerref">addPlayer(<a href="../../util/player-ref/">PlayerRef</a>)</h3>
+<h3 id="removeplayerplayerref">removePlayer(<a href="../../util/player-ref/">PlayerRef</a>)</h3>
+<h3 id="close">close()</h3>
+</details>
 
 
 

@@ -19,7 +19,7 @@
     
     
       
-        <title>Scrollable sidebar widget - Nucleoid Docs</title>
+        <title>Scrollable Sidebar Widget - Nucleoid Docs</title>
       
     
     
@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#scrollable-sidebar-widget" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -98,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scrollable sidebar widget
+              Scrollable Sidebar Widget
             
           </span>
         </div>
@@ -1364,6 +1369,34 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../Game Widgets - api/plasmid/widgets/global-widget.md - api/plasmid/widgets/game-widget.md - api/plasmid/widgets/bossbar-widget.md - api/plasmid/widgets/sidebar-widget.md - api/plasmid/widgets-scrollable-sidebar-widget.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -1378,10 +1411,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_6" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2_6" id="__nav_3_2_6_label" tabindex="0">
             
   
   
@@ -1399,8 +1432,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2458,9 +2491,87 @@
   
 
 
-  <h1>Scrollable sidebar widget</h1>
-
-
+<h1 id="scrollable-sidebar-widget">Scrollable Sidebar Widget</h1>
+<p>Implements scrolling behaviour to the regular <a href="../sidebar-widget/">SidebarWidget</a> if it has more than 14 lines</p>
+<h3 id="constructors">Constructors</h3>
+<hr />
+<ul>
+<li>ScrollableSidebarWidget(int)</li>
+<li>ScrollableSidebarWidget(int, Predicate&lt;ServerPlayer&gt;)</li>
+<li>ScrollableSidebarWidget(Component, int)</li>
+<li>ScrollableSidebarWidget(Component, int, Predicate&lt;ServerPlayer&gt;)</li>
+</ul>
+<p>(int is the amount of ticks per line)</p>
+<!-- prettier-ignore -->
+<details class="info">
+<summary>Sidebar inherited methods</summary>
+<h3 id="constructors_1">Constructors</h3>
+<hr />
+<ul>
+<li>SidebarWidget()</li>
+<li>SidebarWidget(Predicate&lt;ServerPlayer&gt;)</li>
+<li>SidebarWidget(Component)</li>
+<li>SidebarWidget(Component, Predicate&lt;ServerPlayer&gt;)</li>
+</ul>
+<h3 id="getpriority">getPriority()</h3>
+<hr />
+<p>Returns the priority that this sidebar will display as</p>
+<h3 id="setpriority">setPriority()</h3>
+<hr />
+<p>Sets the priority that this sidebar will display as</p>
+<h3 id="getdefaultnumberformat">getDefaultNumberFormat()</h3>
+<hr />
+<p>Gets the number format used for this sidebar</p>
+<h3 id="setdefaultnumberformatnumberformat">setDefaultNumberFormat(NumberFormat)</h3>
+<hr />
+<p>Sets the number format used for this sidebar (usually used to hide the index of each line)</p>
+<h3 id="getupdaterate">getUpdateRate()</h3>
+<hr />
+<p>How often this sidebar will update in ticks</p>
+<h3 id="setupdaterateint">setUpdateRate(int)</h3>
+<hr />
+<p>Sets how often the sidebar will update in ticks</p>
+<h3 id="gettitle">getTitle()</h3>
+<hr />
+<p>Gets the title used for this sidebar</p>
+<h3 id="settitlecomponent">setTitle(Component)</h3>
+<hr />
+<p>Sets the title used for this sidebar</p>
+<h3 id="setlineint-component">setLine(int, Component)</h3>
+<h3 id="setlinesidebarline">setLine(SidebarLine)</h3>
+<hr />
+<p>Sets the content of the line at the given index<br />
+Can also be called with a NumberFormat to set the number format of this specific line</p>
+<h3 id="addlinessidebarline">addLines(SidebarLine)</h3>
+<h3 id="addlinescomponent">addLines(Component...)</h3>
+<hr />
+<p>Adds lines in bulk</p>
+<h3 id="removelinesidebarline">removeLine(SidebarLine)</h3>
+<h3 id="removelineint">removeLine(int)</h3>
+<hr />
+<p>Removes the specified line, either by SidebarLine or its index</p>
+<h3 id="getlineint">getLine(int)</h3>
+<hr />
+<p>Gets the line at this index</p>
+<h3 id="replacelinescomponent">replaceLines(Component...)</h3>
+<h3 id="replacelinessidebarline">replaceLines(SidebarLine...)</h3>
+<h3 id="replacelineslinebuilder">replaceLines(LineBuilder)</h3>
+<hr />
+<p>Clears previous lines and replaces them with the arguments</p>
+<h3 id="clearlines">clearLines()</h3>
+<hr />
+<p>Clears all lines</p>
+<h3 id="setconsumerlinebuilder">set(Consumer&lt;LineBuilder&gt;)</h3>
+<hr />
+<p>Replaces all lines with the result of the LineBuilder</p>
+<!-- prettier-ignore -->
+<details class="info">
+<summary>Game Widget inherited methods</summary>
+<h3 id="addplayerplayerref">addPlayer(<a href="../../util/player-ref/">PlayerRef</a>)</h3>
+<h3 id="removeplayerplayerref">removePlayer(<a href="../../util/player-ref/">PlayerRef</a>)</h3>
+<h3 id="close">close()</h3>
+</details>
+</details>
 
 
 
